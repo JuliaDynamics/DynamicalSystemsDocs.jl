@@ -1,38 +1,60 @@
-cd(@__DIR__)
+using MultiDocumenter
 
-import Downloads
-Downloads.download(
-    "https://raw.githubusercontent.com/JuliaDynamics/doctheme/master/apply_style.jl",
-    joinpath(@__DIR__, "apply_style.jl")
-)
-include("apply_style.jl")
+clonedir = ("--temp" in ARGS) ? mktempdir() : joinpath(@__DIR__, "clones")
+outpath = mktempdir()
+@info """
+Cloning packages into: $(clonedir)
+Building aggregate site into: $(outpath)
+"""
 
-using DynamicalSystemsBase
 
-DYNAMICALSYSTEMSBASE_PAGES = [
-    "index.md",
+docsmodules = [
+    "Core" => ["StateSpaceSets", "DynamicalSystemsBase"],
+    "Nonlinear Dynamics" => ["PredefinedDynamicalSystems", "ChaosTools", "Attractors"],
+    "Nonlinear Timeseries Analysis" =>
+        ["DelayEmbeddings", "FractalDimensions",
+        "ComplexityMeasures", "TimeseriesSurrogates", "RecurenceAnalysis"],
 ]
-using DynamicalSystemsBase.SciMLBase
 
-makedocs(
-    modules = [DynamicalSystemsBase, SciMLBase, StateSpaceSets],
-    format = Documenter.HTML(
-        prettyurls = CI,
-        assets = [
-            asset("https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro&display=swap", class=:css),
-        ],
+docs = []
+
+# The main DynamicalSystems.jl package is also the Home of the documentation
+push!(docs,
+    MultiDocumenter.MultiDocRef(
+        upstream = joinpath(clonedir, "DynamicalSystems"),
+        path = "dynamicalsystems",
+        name = "DynamicalSystems.jl", # TODO: Maybe name "Home"?
+        giturl = "https://github.com/JuliaDynamics/DynamicalSystems.jl.git",
     ),
-    sitename = "DynamicalSystemsBase.jl",
-    authors = "George Datseris",
-    pages = DYNAMICALSYSTEMSBASE_PAGES,
-    doctest = false,
-    draft = false,
 )
 
-if CI
-    deploydocs(
-        repo = "github.com/JuliaDynamics/DynamicalSystemsBase.jl.git",
-        target = "build",
-        push_preview = true
+# Now all other packages can be added via a simple nested loop
+for groups in docsmodules
+    colname = groups[1]
+    packages = groups[2]
+    multidoccolumn = []
+    for package in packages
+        push!(multidoccolumn,
+        MultiDocumenter.MultiDocRef(
+            upstream = joinpath(clonedir, "DynamicalSystems"),
+            path = lowercase(package),
+            name = "$(package).jl",
+            giturl = "https://github.com/JuliaDynamics/$(package).jl.git",
+        ),
     )
+    end
+    push!(docs, MultiDocumenter.DropdownNav("colname", multidoccolumn))
 end
+
+# Build the documentation
+MultiDocumenter.make(
+    outpath,
+    docs;
+    search_engine = MultiDocumenter.SearchConfig(
+        index_versions = ["stable"],
+        engine = MultiDocumenter.FlexSearch,
+    ),
+    rootpath = "/DynamicalSystemsDocs.jl/",
+    # canonical_domain = "https://juliadynamics.github.io/",
+    # sitemap = true,
+)
