@@ -7,7 +7,6 @@ Cloning packages into: $(clonedir)
 Building aggregate site into: $(outpath)
 """
 
-
 docsmodules = [
     "Core" => ["StateSpaceSets", "DynamicalSystemsBase"],
     "Nonlinear Dynamics" => ["PredefinedDynamicalSystems", "ChaosTools", "Attractors"],
@@ -18,15 +17,17 @@ docsmodules = [
 
 docs = []
 
-# The main DynamicalSystems.jl package is also the Home of the documentation
-push!(docs,
+function multidocref(package)
     MultiDocumenter.MultiDocRef(
-        upstream = joinpath(clonedir, "DynamicalSystems"),
-        path = "dynamicalsystems",
-        name = "DynamicalSystems.jl", # TODO: Maybe name "Home"?
-        giturl = "https://github.com/JuliaDynamics/DynamicalSystems.jl.git",
-    ),
-)
+        upstream = joinpath(clonedir, package),
+        path = lowercase(package),
+        name = "$(package).jl",
+        giturl = "https://github.com/JuliaDynamics/$(package).jl.git",
+    )
+end
+
+# The main DynamicalSystems.jl package is also the Home of the documentation
+push!(docs, multidocref("DynamicalSystems"))
 
 # Now all other packages can be added via a simple nested loop
 for groups in docsmodules
@@ -34,14 +35,7 @@ for groups in docsmodules
     packages = groups[2]
     multidoccolumn = []
     for package in packages
-        push!(multidoccolumn,
-        MultiDocumenter.MultiDocRef(
-            upstream = joinpath(clonedir, "DynamicalSystems"),
-            path = lowercase(package),
-            name = "$(package).jl",
-            giturl = "https://github.com/JuliaDynamics/$(package).jl.git",
-        ),
-    )
+        push!(multidoccolumn, multidocref(package))
     end
     push!(docs, MultiDocumenter.DropdownNav("colname", multidoccolumn))
 end
