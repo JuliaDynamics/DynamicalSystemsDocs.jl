@@ -1,4 +1,4 @@
-name = "DynamicalSystemsBase"
+name = "DynamicalSystemsDocs"
 uuid = "f8d077f0-d32c-420c-afe6-5229af1d7171"
 repo = "https://github.com/JuliaDynamics/DynamicalSystemsDocs.jl.git"
 version = "0.1"
