@@ -1,8 +1,13 @@
 name: Aggregate
 on:
+  pull_request:
+    branches:
+      - main
+      - '**' # matches every branch
   push:
     branches:
       - main
+    tags: '*'
 jobs:
   aggregate:
     runs-on: ubuntu-latest
