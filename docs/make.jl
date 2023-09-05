@@ -18,10 +18,14 @@ docsmodules = [
 docs = []
 
 function multidocref(package)
-    MultiDocumenter.MultiDocRef(
+    name = "$(package).jl"
+    if package == "Attractors"
+        name = "$(package).jl - find attractors and basins; a new era of continuation"
+    end
+    MultiDocumenter.MultiDocRef(;
         upstream = joinpath(clonedir, package),
         path = lowercase(package),
-        name = "$(package).jl",
+        name,
         giturl = "https://github.com/JuliaDynamics/$(package).jl.git",
     )
 end
