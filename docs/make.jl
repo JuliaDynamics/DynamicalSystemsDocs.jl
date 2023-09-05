@@ -48,7 +48,7 @@ MultiDocumenter.make(
         index_versions = ["stable"],
         engine = MultiDocumenter.FlexSearch,
     ),
-    # rootpath = "/DynamicalSystemsDocs.jl/",
+    rootpath = "/DynamicalSystemsDocs.jl/",
     # canonical_domain = "https://juliadynamics.github.io/",
     # sitemap = true,
 )
