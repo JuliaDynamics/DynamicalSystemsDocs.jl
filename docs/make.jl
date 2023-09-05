@@ -37,7 +37,7 @@ for groups in docsmodules
     for package in packages
         push!(multidoccolumn, multidocref(package))
     end
-    push!(docs, MultiDocumenter.DropdownNav("colname", multidoccolumn))
+    push!(docs, MultiDocumenter.DropdownNav(colname, multidoccolumn))
 end
 
 # Build the documentation
