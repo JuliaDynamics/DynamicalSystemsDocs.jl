@@ -8,19 +8,30 @@ Building aggregate site into: $(outpath)
 """
 
 docsmodules = [
-    "Core" => ["StateSpaceSets", "DynamicalSystemsBase"],
-    "Nonlinear Dynamics" => ["PredefinedDynamicalSystems", "ChaosTools", "Attractors"],
-    "Nonlinear Timeseries Analysis" =>
-        ["DelayEmbeddings", "FractalDimensions",
-        "ComplexityMeasures", "TimeseriesSurrogates", "RecurrenceAnalysis"],
+    "Core" => [
+        ("StateSpaceSets", "numerical handling of sets in state space"),
+        ("DynamicalSystemsBase", "infrastructure for programming NLD algorithms"),
+    ],
+    "Nonlinear Dynamics" => [
+        ("PredefinedDynamicalSystems", "predefined dynamical systems used in publications"),
+        ("ChaosTools", "various tools for analysing nonlinear and chaotic behaviour"),
+        ("Attractors", "find attractors and basins; continuation; tipping"),
+    ],
+    "Nonlinear Timeseries Analysis" => [
+        ("DelayEmbeddings", "optimal (unified/separated) delay coordinate embeddings"),
+        ("FractalDimensions", "dozens of estimators for fractal dimensions"),
+        ("ComplexityMeasures", "rigorous framework for probabilities, entropies, and other complexity measures"),
+        ("TimeseriesSurrogates", "dozes of ways to generate timeseries surrogates and tests hypothesis"),
+        ("RecurrenceAnalysis", "recurrence quantification and recurrence network analysis"),
+    ],
 ]
 
 docs = []
 
-function multidocref(package)
+function multidocref(package, descr = "")
     name = "$(package).jl"
-    if package == "Attractors"
-        name = "$(package).jl - find attractors and basins; a new era of continuation"
+    if !isempty(descr)
+        name *= "- $(descr)"
     end
     MultiDocumenter.MultiDocRef(;
         upstream = joinpath(clonedir, package),
@@ -38,8 +49,8 @@ for groups in docsmodules
     colname = groups[1]
     packages = groups[2]
     multidoccolumn = []
-    for package in packages
-        push!(multidoccolumn, multidocref(package))
+    for (package, descr) in packages
+        push!(multidoccolumn, multidocref(package, descr))
     end
     push!(docs, MultiDocumenter.DropdownNav(colname, multidoccolumn))
 end
