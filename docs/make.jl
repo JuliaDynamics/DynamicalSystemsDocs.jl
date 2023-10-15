@@ -39,7 +39,7 @@ docs = []
 function multidocref(package, descr = "")
     name = "$(package).jl"
     if !isempty(descr)
-        name *= "- $(descr)"
+        name *= " - $(descr)"
     end
     MultiDocumenter.MultiDocRef(;
         upstream = joinpath(clonedir, package),
