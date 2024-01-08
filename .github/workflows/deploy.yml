@@ -1,5 +1,7 @@
 name: Aggregate
 on:
+  schedule:
+    - cron: "0 0 * * *" # repeat run at the end of every day
   pull_request:
     branches:
       - main
@@ -14,8 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v1
-        with:
-          version: '1.8'
       - uses: actions/cache@v3
         env:
           cache-name: cache-artifacts
