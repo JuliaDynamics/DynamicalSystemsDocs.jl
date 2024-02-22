@@ -24,14 +24,6 @@ docsmodules = [
         ("TimeseriesSurrogates", "dozes of ways to generate timeseries surrogates and tests hypothesis"),
         ("RecurrenceAnalysis", "recurrence quantification and recurrence network analysis"),
     ],
-    "Related" => [
-        ("SignalDecomposition", "decompose timeseries into components such as noise+signal or periodic+aperiodic"),
-        # ("ARFIMA", "generate ARFIMA process timeseries"), # problem, doesn't have github pages
-        # ("CausalityTools", "hundreds of algorithms for relational/causal timeseries analysis and causal graphs"),
-        # ("Agents", "fastest, simplest, most featureful agent based modelling framework"),
-        # ("ConcurrentSim", "discrete event process oriented simulation framework"),
-        # ("DynamicalBilliards", "flexible extendable billiard simulations in 2D"),
-    ],
 ]
 
 docs = []
