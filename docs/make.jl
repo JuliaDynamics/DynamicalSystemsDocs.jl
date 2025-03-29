@@ -23,6 +23,8 @@ docsmodules = [
         ("ComplexityMeasures", "rigorous framework for probabilities, entropies, and other complexity measures"),
         ("TimeseriesSurrogates", "dozes of ways to generate timeseries surrogates and tests hypothesis"),
         ("RecurrenceAnalysis", "recurrence quantification and recurrence network analysis"),
+        ("TransitionsInTimeseries", "identify transitions / regime shifts / change points in timeseries"),
+        ("SignalDecomposition", "decompose timeseries into components such as noise+signal or periodic+aperiodic or trend+residual"),
     ],
 ]
 
