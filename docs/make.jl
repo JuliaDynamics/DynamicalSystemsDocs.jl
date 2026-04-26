@@ -21,9 +21,10 @@ docsmodules = [
     "Nonlinear Timeseries Analysis" => [
         ("DelayEmbeddings", "optimal (unified/separated) delay coordinate embeddings"),
         ("FractalDimensions", "dozens of estimators for fractal dimensions"),
-        ("ComplexityMeasures", "rigorous framework for probabilities, entropies, and other complexity measures"),
-        ("TimeseriesSurrogates", "dozes of ways to generate timeseries surrogates and tests hypothesis"),
+        ("ComplexityMeasures", "framework for probabilities, entropies, and other complexity measures"),
+        ("TimeseriesSurrogates", "dozes of ways to generate timeseries surrogates and tests hypotheses"),
         ("RecurrenceAnalysis", "recurrence quantification and recurrence network analysis"),
+        ("RecurrenceMicrostateAnalysis", "recurrence microstate probabilities and analysis"),
         ("SignalDecomposition", "decompose timeseries into components such as noise+signal or periodic+aperiodic or trend+residual"),
     ],
 ]
