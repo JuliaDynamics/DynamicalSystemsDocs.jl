@@ -26,6 +26,7 @@ docsmodules = [
         ("RecurrenceAnalysis", "recurrence quantification and recurrence network analysis"),
         ("RecurrenceMicrostateAnalysis", "recurrence microstate probabilities and analysis"),
         ("SignalDecomposition", "decompose timeseries into components such as noise+signal or periodic+aperiodic or trend+residual"),
+        ("TransitionsInTimeseries", "identify transitions / regime shifts / change points in timeseries"),
     ],
 ]
 
