@@ -15,7 +15,7 @@ docsmodules = [
     "Nonlinear Dynamics" => [
         ("PredefinedDynamicalSystems", "predefined dynamical systems used in publications"),
         ("ChaosTools", "various tools for analysing nonlinear and chaotic behaviour"),
-        ("Attractors", "find attractors and basins; continuation; tipping"),
+        ("Attractors", "find attractors and basins; nonlocal stability; global continuation"),
         ("PeriodicOrbits", "stable and unstable periodic orbits for discrete and continuous time systems"),
     ],
     "Nonlinear Timeseries Analysis" => [
