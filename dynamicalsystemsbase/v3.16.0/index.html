@@ -113,7 +113,7 @@ sparseJ</code></pre><pre class="documenter-example-output"><code class="nohighli
  dynamic rule:  CoupledStandardMaps
  parameters:    ([0.9, 0.9, 0.9, 0.9, 0.9], 1.0)
  time:          0
- state:         [0.00034410203174365316, 0.00041095073588438846, 0.0008421849895347674, 0.0005768690394523785, 0.0002070516270628494, 0.000471138584938847, 0.0004733710633302969, 4.886151714654907e-5, 0.0007097758470552414, 0.00020248875847452696]
+ state:         [2.148747021623021e-5, 0.0005743065278870734, 0.0007387389544397387, 0.000334429416987151, 0.00024719698266467596, 0.0007778078661283234, 0.000753914235214726, 0.0009501502519094558, 0.0003187732192514334, 9.626267967920321e-5]
 </code></pre><p>Of course, the reason we went through all this trouble was to make a <a href="#TangentDynamicalSystem"><code>TangentDynamicalSystem</code></a>, that can actually use the Jacobian function.</p><pre><code class="language-julia hljs">tands = TangentDynamicalSystem(ds; J = csm, J0 = sparseJ, k = M)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">10-dimensional TangentDynamicalSystem
  deterministic:     true
  discrete time:     true
@@ -123,16 +123,16 @@ sparseJ</code></pre><pre class="documenter-example-output"><code class="nohighli
  deviation vectors: 5
  parameters:        ([0.9, 0.9, 0.9, 0.9, 0.9], 1.0)
  time:              0
- state:             [0.00034410203174365316, 0.00041095073588438846, 0.0008421849895347674, 0.0005768690394523785, 0.0002070516270628494, 0.000471138584938847, 0.0004733710633302969, 4.886151714654907e-5, 0.0007097758470552414, 0.00020248875847452696]
+ state:             [2.148747021623021e-5, 0.0005743065278870734, 0.0007387389544397387, 0.000334429416987151, 0.00024719698266467596, 0.0007778078661283234, 0.000753914235214726, 0.0009501502519094558, 0.0003187732192514334, 9.626267967920321e-5]
 </code></pre><pre><code class="language-julia hljs">step!(tands, 5)
 current_deviations(tands)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">10×5 view(::Matrix{Float64}, :, 2:6) with eltype Float64:
-  3858.99   -2725.12     830.273    820.968  -2715.64
- -2739.13    3886.56   -2742.3      833.873    830.614
-   833.608  -2759.11    3920.91   -2773.93     848.078
-   827.522    848.371  -2768.57    3909.59   -2747.31
- -2711.35     820.695    826.884  -2717.56    3850.73
-  3203.02   -2299.37     718.563    709.303  -2289.95
- -2313.34    3230.5    -2316.53     722.178    718.902
-   721.917  -2333.33    3264.79   -2348.06     736.326
-   715.86     736.617  -2342.72    3253.53   -2321.59
- -2285.71     709.03     715.223  -2291.93    3194.88</code></pre><p>(the deviation vectors will increase in magnitude rapidly because the dynamical system is chaotic)</p><section class="footnotes is-size-7"><ul><li class="footnote" id="footnote-DatserisParlitz2022"><a class="tag is-link" href="#citeref-DatserisParlitz2022">DatserisParlitz2022</a>Datseris &amp; Parlitz 2022, <em>Nonlinear Dynamics: A Concise Introduction Interlaced with Code</em>, <a href="https://doi.org/10.1007/978-3-030-91032-7">Springer Nature, Undergrad. Lect. Notes In Physics</a></li></ul></section></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="CoupledSDEs/"><code>CoupledSDEs</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label></p><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div><p></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Wednesday 13 May 2026 21:36">Wednesday 13 May 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></HTML>
+  3872.9    -2731.67     829.994    828.36   -2730.13
+ -2751.31    3911.32   -2767.04     845.976    830.677
+   844.745  -2748.78    3876.65   -2719.46     816.096
+   829.711    816.9    -2706.7     3849.52   -2719.93
+ -2731.77     828.897    829.994  -2732.97    3875.44
+  3216.97   -2306.01     718.334    716.662  -2304.41
+ -2325.6     3255.29   -2341.22     734.234    719.018
+   733.009  -2323.04    3220.79   -2293.9      704.491
+   717.995    705.288  -2281.13    3193.65   -2294.22
+ -2305.99     717.197    718.279  -2307.16    3219.37</code></pre><p>(the deviation vectors will increase in magnitude rapidly because the dynamical system is chaotic)</p><section class="footnotes is-size-7"><ul><li class="footnote" id="footnote-DatserisParlitz2022"><a class="tag is-link" href="#citeref-DatserisParlitz2022">DatserisParlitz2022</a>Datseris &amp; Parlitz 2022, <em>Nonlinear Dynamics: A Concise Introduction Interlaced with Code</em>, <a href="https://doi.org/10.1007/978-3-030-91032-7">Springer Nature, Undergrad. Lect. Notes In Physics</a></li></ul></section></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="CoupledSDEs/"><code>CoupledSDEs</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label></p><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div><p></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Wednesday 13 May 2026 21:56">Wednesday 13 May 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></HTML>
