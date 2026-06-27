@@ -1,4 +1,4 @@
-<!DOCTYPE html><HTML lang="en"><head><script charset="utf-8" src="../../../assets/default/multidoc_injector.js" type="text/javascript"></script><script charset="utf-8" type="text/javascript">window.MULTIDOCUMENTER_ROOT_PATH = '/DynamicalSystemsDocs.jl/'</script><script charset="utf-8" src="../../../assets/default/flexsearch.bundle.js" type="text/javascript"></script><script charset="utf-8" src="../../../assets/default/flexsearch_integration.js" type="text/javascript"></script><meta charset="UTF-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Examples for Attractors.jl · Attractors.jl</title><meta content="Examples for Attractors.jl · Attractors.jl" name="title"/><meta content="Examples for Attractors.jl · Attractors.jl" property="og:title"/><meta content="Examples for Attractors.jl · Attractors.jl" property="twitter:title"/><meta content="Documentation for Attractors.jl." name="description"/><meta content="Documentation for Attractors.jl." property="og:description"/><meta content="Documentation for Attractors.jl." property="twitter:description"/><script data-outdated-warner="" src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script data-main="../assets/documenter.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" data-theme-name="catppuccin-mocha" href="../assets/themes/catppuccin-mocha.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="catppuccin-macchiato" href="../assets/themes/catppuccin-macchiato.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="catppuccin-frappe" href="../assets/themes/catppuccin-frappe.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="catppuccin-latte" href="../assets/themes/catppuccin-latte.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="documenter-dark" data-theme-primary-dark="" href="../assets/themes/documenter-dark.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="documenter-light" data-theme-primary="" href="../assets/themes/documenter-light.css" rel="stylesheet" type="text/css"/><script src="../assets/themeswap.js"></script><link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro&amp;display=swap" rel="stylesheet" type="text/css"/><link href="nothing/DynamicalSystemsDocs.jl/attractors/stable/examples/" rel="canonical"/><link href="../../../assets/default/multidoc.css" rel="stylesheet" type="text/css"/><link href="../../../assets/default/flexsearch.css" rel="stylesheet" type="text/css"/></head><body><nav id="multi-page-nav"><div class="hidden-on-mobile" id="nav-items"><a class="nav-link nav-item" href="../../../dynamicalsystems/">DynamicalSystems.jl</a><div class="nav-dropdown"><button class="nav-item dropdown-label">Core</button><ul class="nav-dropdown-container"><a class="nav-link nav-item" href="../../../statespacesets/">StateSpaceSets.jl - numerical handling of sets in state space</a><a class="nav-link nav-item" href="../../../dynamicalsystemsbase/">DynamicalSystemsBase.jl - infrastructure for programming NLD algorithms</a></ul></div><div class="nav-dropdown"><button class="nav-item dropdown-label">Nonlinear Dynamics</button><ul class="nav-dropdown-container"><a class="nav-link nav-item" href="../../../predefineddynamicalsystems/">PredefinedDynamicalSystems.jl - predefined dynamical systems used in publications</a><a class="nav-link nav-item" href="../../../chaostools/">ChaosTools.jl - various tools for analysing nonlinear and chaotic behaviour</a><a class="nav-link active nav-item" href="../../">Attractors.jl - find attractors and basins; nonlocal stability; global continuation</a><a class="nav-link nav-item" href="../../../periodicorbits/">PeriodicOrbits.jl - stable and unstable periodic orbits for discrete and continuous time systems</a></ul></div><div class="nav-dropdown"><button class="nav-item dropdown-label">Nonlinear Timeseries Analysis</button><ul class="nav-dropdown-container"><a class="nav-link nav-item" href="../../../delayembeddings/">DelayEmbeddings.jl - optimal (unified/separated) delay coordinate embeddings</a><a class="nav-link nav-item" href="../../../fractaldimensions/">FractalDimensions.jl - dozens of estimators for fractal dimensions</a><a class="nav-link nav-item" href="../../../complexitymeasures/">ComplexityMeasures.jl - framework for probabilities, entropies, and other complexity measures</a><a class="nav-link nav-item" href="../../../timeseriessurrogates/">TimeseriesSurrogates.jl - dozes of ways to generate timeseries surrogates and tests hypotheses</a><a class="nav-link nav-item" href="../../../recurrenceanalysis/">RecurrenceAnalysis.jl - recurrence quantification and recurrence network analysis</a><a class="nav-link nav-item" href="../../../recurrencemicrostatesanalysis/">RecurrenceMicrostatesAnalysis.jl - recurrence microstates probabilities and analysis</a><a class="nav-link nav-item" href="../../../signaldecomposition/">SignalDecomposition.jl - decompose timeseries into components such as noise+signal or periodic+aperiodic or trend+residual</a><a class="nav-link nav-item" href="../../../transitionsintimeseries/">TransitionsInTimeseries.jl - identify transitions / regime shifts / change points in timeseries</a></ul></div><div class="search nav-item"><input id="search-input" placeholder="Search everywhere..."/><ul class="suggestions hidden" id="search-result-container"></ul><div class="search-keybinding">/</div></div></div><button id="multidoc-toggler"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg></button></nav><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">Attractors.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Attractors.jl</a></li><li><a class="tocitem" href="../tutorial/">Attractors.jl Tutorial</a></li><li><a class="tocitem" href="../api/">API</a></li><li class="is-active"><a class="tocitem" href="">Examples for Attractors.jl</a><ul class="internal"><li><a class="tocitem" href="#Newton&#39;s-fractal-(basins-of-a-2D-map)"><span>Newton's fractal (basins of a 2D map)</span></a></li><li><a class="tocitem" href="#Shading-basins-according-to-convergence-time"><span>Shading basins according to convergence time</span></a></li><li><a class="tocitem" href="#Minimal-Critical-Shock"><span>Minimal Critical Shock</span></a></li><li><a class="tocitem" href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum"><span>Fractality of 2D basins of the (4D) magnetic pendulum</span></a></li><li><a class="tocitem" href="#Intermingledness-and-basin-entropy"><span>Intermingledness and basin entropy</span></a></li><li><a class="tocitem" href="#3D-basins-via-recurrences"><span>3D basins via recurrences</span></a></li><li><a class="tocitem" href="#Basins-of-attraction-of-a-Poincaré-map"><span>Basins of attraction of a Poincaré map</span></a></li><li><a class="tocitem" href="#Irregular-grid-for-AttractorsViaRecurrences"><span>Irregular grid for <code>AttractorsViaRecurrences</code></span></a></li><li><a class="tocitem" href="#Subdivision-Based-Grid-for-AttractorsViaRecurrences"><span>Subdivision Based Grid for <code>AttractorsViaRecurrences</code></span></a></li><li><a class="tocitem" href="#Basin-fractions-continuation-in-the-magnetic-pendulum"><span>Basin fractions continuation in the magnetic pendulum</span></a></li><li><a class="tocitem" href="#aggregation_example"><span>Extinction of a species in a multistable competition model</span></a></li><li><a class="tocitem" href="#Trivial-featurizing-and-grouping-for-basins-fractions"><span>Trivial featurizing and grouping for basins fractions</span></a></li><li><a class="tocitem" href="#Featurizing-and-grouping-across-parameters-(MCBB)"><span>Featurizing and grouping across parameters (MCBB)</span></a></li><li><a class="tocitem" href="#Using-histograms-and-histogram-distances-as-features"><span>Using histograms and histogram distances as features</span></a></li><li><a class="tocitem" href="#Edge-tracking"><span>Edge tracking</span></a></li><li><a class="tocitem" href="#Estimating-(almost)-all-stability-measures-using-the-accumulator"><span>Estimating (almost) all stability measures using the accumulator</span></a></li><li><a class="tocitem" href="#user_defined_quantifiers"><span>Enhancing the accumulator with arbitrary user-defined quantifiers</span></a></li><li><a class="tocitem" href="#aggregated_stability"><span>Aggregating attractors before computing stability measures</span></a></li><li><a class="tocitem" href="#Invariant-saddle-of-a-dynamical-system"><span>Invariant saddle of a dynamical system</span></a></li><li><a class="tocitem" href="#Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space"><span>Matching limit cycles and fixed points in a system with named heterogeneous state space</span></a></li><li><a class="tocitem" href="#Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty"><span>Performing multiple global continuations to incorporate prescribed parameter changes and parameter uncertainty</span></a></li></ul></li><li><a class="tocitem" href="../references/">References</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" href="#" id="documenter-sidebar-button"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href="">Examples for Attractors.jl</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="">Examples for Attractors.jl</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaDynamics/Attractors.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaDynamics/Attractors.jl/blob/main/docs/src/examples.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" href="#" id="documenter-settings-button" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" href="javascript:;" id="documenter-article-toggle-button" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="examples"><a class="docs-heading-anchor" href="#examples">Examples for Attractors.jl</a><a id="examples-1"></a><a class="docs-heading-anchor-permalink" href="#examples" title="Permalink"></a></h1><p>Note that the examples utilize some convenience plotting functions offered by Attractors.jl which come into scope when using <code>Makie</code> (or any of its backends such as <code>CairoMakie</code>), see the <a href="@ref">visualization utilities</a> for more.</p><h2 id="Newton&#39;s-fractal-(basins-of-a-2D-map)"><a class="docs-heading-anchor" href="#Newton&#39;s-fractal-(basins-of-a-2D-map)">Newton's fractal (basins of a 2D map)</a><a id="Newton&#39;s-fractal-(basins-of-a-2D-map)-1"></a><a class="docs-heading-anchor-permalink" href="#Newton&#39;s-fractal-(basins-of-a-2D-map)" title="Permalink"></a></h2><pre><code class="language-julia hljs">using Attractors
+<!DOCTYPE html><HTML lang="en"><head><script charset="utf-8" src="../../../assets/default/multidoc_injector.js" type="text/javascript"></script><script charset="utf-8" type="text/javascript">window.MULTIDOCUMENTER_ROOT_PATH = '/DynamicalSystemsDocs.jl/'</script><script charset="utf-8" src="../../../assets/default/flexsearch.bundle.js" type="text/javascript"></script><script charset="utf-8" src="../../../assets/default/flexsearch_integration.js" type="text/javascript"></script><meta charset="UTF-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Examples for Attractors.jl · Attractors.jl</title><meta content="Examples for Attractors.jl · Attractors.jl" name="title"/><meta content="Examples for Attractors.jl · Attractors.jl" property="og:title"/><meta content="Examples for Attractors.jl · Attractors.jl" property="twitter:title"/><meta content="Documentation for Attractors.jl." name="description"/><meta content="Documentation for Attractors.jl." property="og:description"/><meta content="Documentation for Attractors.jl." property="twitter:description"/><script data-outdated-warner="" src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script data-main="../assets/documenter.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" data-theme-name="catppuccin-mocha" href="../assets/themes/catppuccin-mocha.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="catppuccin-macchiato" href="../assets/themes/catppuccin-macchiato.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="catppuccin-frappe" href="../assets/themes/catppuccin-frappe.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="catppuccin-latte" href="../assets/themes/catppuccin-latte.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="documenter-dark" data-theme-primary-dark="" href="../assets/themes/documenter-dark.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" data-theme-name="documenter-light" data-theme-primary="" href="../assets/themes/documenter-light.css" rel="stylesheet" type="text/css"/><script src="../assets/themeswap.js"></script><link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro&amp;display=swap" rel="stylesheet" type="text/css"/><link href="nothing/DynamicalSystemsDocs.jl/attractors/stable/examples/" rel="canonical"/><link href="../../../assets/default/multidoc.css" rel="stylesheet" type="text/css"/><link href="../../../assets/default/flexsearch.css" rel="stylesheet" type="text/css"/></head><body><nav id="multi-page-nav"><div class="hidden-on-mobile" id="nav-items"><a class="nav-link nav-item" href="../../../dynamicalsystems/">DynamicalSystems.jl</a><div class="nav-dropdown"><button class="nav-item dropdown-label">Core</button><ul class="nav-dropdown-container"><a class="nav-link nav-item" href="../../../statespacesets/">StateSpaceSets.jl - numerical handling of sets in state space</a><a class="nav-link nav-item" href="../../../dynamicalsystemsbase/">DynamicalSystemsBase.jl - infrastructure for programming NLD algorithms</a></ul></div><div class="nav-dropdown"><button class="nav-item dropdown-label">Nonlinear Dynamics</button><ul class="nav-dropdown-container"><a class="nav-link nav-item" href="../../../predefineddynamicalsystems/">PredefinedDynamicalSystems.jl - predefined dynamical systems used in publications</a><a class="nav-link nav-item" href="../../../chaostools/">ChaosTools.jl - various tools for analysing nonlinear and chaotic behaviour</a><a class="nav-link active nav-item" href="../../">Attractors.jl - find attractors and basins; nonlocal stability; global continuation</a><a class="nav-link nav-item" href="../../../periodicorbits/">PeriodicOrbits.jl - stable and unstable periodic orbits for discrete and continuous time systems</a></ul></div><div class="nav-dropdown"><button class="nav-item dropdown-label">Nonlinear Timeseries Analysis</button><ul class="nav-dropdown-container"><a class="nav-link nav-item" href="../../../delayembeddings/">DelayEmbeddings.jl - optimal (unified/separated) delay coordinate embeddings</a><a class="nav-link nav-item" href="../../../fractaldimensions/">FractalDimensions.jl - dozens of estimators for fractal dimensions</a><a class="nav-link nav-item" href="../../../complexitymeasures/">ComplexityMeasures.jl - framework for probabilities, entropies, and other complexity measures</a><a class="nav-link nav-item" href="../../../timeseriessurrogates/">TimeseriesSurrogates.jl - dozes of ways to generate timeseries surrogates and tests hypotheses</a><a class="nav-link nav-item" href="../../../recurrenceanalysis/">RecurrenceAnalysis.jl - recurrence quantification and recurrence network analysis</a><a class="nav-link nav-item" href="../../../recurrencemicrostatesanalysis/">RecurrenceMicrostatesAnalysis.jl - recurrence microstates probabilities and analysis</a><a class="nav-link nav-item" href="../../../signaldecomposition/">SignalDecomposition.jl - decompose timeseries into components such as noise+signal or periodic+aperiodic or trend+residual</a><a class="nav-link nav-item" href="../../../transitionsintimeseries/">TransitionsInTimeseries.jl - identify transitions / regime shifts / change points in timeseries</a></ul></div><div class="search nav-item"><input id="search-input" placeholder="Search everywhere..."/><ul class="suggestions hidden" id="search-result-container"></ul><div class="search-keybinding">/</div></div></div><button id="multidoc-toggler"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg></button></nav><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">Attractors.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Attractors.jl</a></li><li><a class="tocitem" href="../tutorial/">Attractors.jl Tutorial</a></li><li><a class="tocitem" href="../api/">API</a></li><li class="is-active"><a class="tocitem" href="">Examples for Attractors.jl</a><ul class="internal"><li><a class="tocitem" href="#Newton&#39;s-fractal-(basins-of-a-2D-map)"><span>Newton's fractal (basins of a 2D map)</span></a></li><li><a class="tocitem" href="#Shading-basins-according-to-convergence-time"><span>Shading basins according to convergence time</span></a></li><li><a class="tocitem" href="#Minimal-Critical-Shock"><span>Minimal Critical Shock</span></a></li><li><a class="tocitem" href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum"><span>Fractality of 2D basins of the (4D) magnetic pendulum</span></a></li><li><a class="tocitem" href="#Intermingledness-and-basin-entropy"><span>Intermingledness and basin entropy</span></a></li><li><a class="tocitem" href="#Trivial-featurizing-and-grouping-for-basins-fractions"><span>Trivial featurizing and grouping for basins fractions</span></a></li><li><a class="tocitem" href="#3D-basins-via-recurrences"><span>3D basins via recurrences</span></a></li><li><a class="tocitem" href="#Basins-of-attraction-of-a-Poincaré-map"><span>Basins of attraction of a Poincaré map</span></a></li><li><a class="tocitem" href="#Irregular-grid-for-BasinMapRecurrences"><span>Irregular grid for <code>BasinMapRecurrences</code></span></a></li><li><a class="tocitem" href="#Subdivision-Based-Grid-for-BasinMapRecurrences"><span>Subdivision Based Grid for <code>BasinMapRecurrences</code></span></a></li><li><a class="tocitem" href="#Basin-fractions-continuation-in-the-magnetic-pendulum"><span>Basin fractions continuation in the magnetic pendulum</span></a></li><li><a class="tocitem" href="#Featurizing-and-grouping-across-parameters-(MCBB-/-FGAP)"><span>Featurizing and grouping across parameters (MCBB / FGAP)</span></a></li><li><a class="tocitem" href="#Using-histograms-and-histogram-distances-as-features"><span>Using histograms and histogram distances as features</span></a></li><li><a class="tocitem" href="#Edge-tracking"><span>Edge tracking</span></a></li><li><a class="tocitem" href="#Estimating-(almost)-all-stability-measures-using-the-accumulator"><span>Estimating (almost) all stability measures using the accumulator</span></a></li><li><a class="tocitem" href="#user_defined_quantifiers"><span>Enhancing the accumulator with arbitrary user-defined quantifiers</span></a></li><li><a class="tocitem" href="#Invariant-saddle-of-a-dynamical-system"><span>Invariant saddle of a dynamical system</span></a></li><li><a class="tocitem" href="#Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space"><span>Matching limit cycles and fixed points in a system with named heterogeneous state space</span></a></li><li><a class="tocitem" href="#aggregate_continuation_example"><span>Aggregated stability measures of a population model</span></a></li><li><a class="tocitem" href="#Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty"><span>Performing multiple global continuations to incorporate prescribed parameter changes and parameter uncertainty</span></a></li></ul></li><li><a class="tocitem" href="../references/">References</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" href="#" id="documenter-sidebar-button"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href="">Examples for Attractors.jl</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="">Examples for Attractors.jl</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaDynamics/Attractors.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaDynamics/Attractors.jl/blob/main/docs/src/examples.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" href="#" id="documenter-settings-button" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" href="javascript:;" id="documenter-article-toggle-button" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="examples"><a class="docs-heading-anchor" href="#examples">Examples for Attractors.jl</a><a id="examples-1"></a><a class="docs-heading-anchor-permalink" href="#examples" title="Permalink"></a></h1><p>Note that the examples utilize some convenience plotting functions offered by Attractors.jl which come into scope when using <code>Makie</code> (or any of its backends such as <code>CairoMakie</code>), see the <a href="@ref">visualization utilities</a> for more.</p><h2 id="Newton&#39;s-fractal-(basins-of-a-2D-map)"><a class="docs-heading-anchor" href="#Newton&#39;s-fractal-(basins-of-a-2D-map)">Newton's fractal (basins of a 2D map)</a><a id="Newton&#39;s-fractal-(basins-of-a-2D-map)-1"></a><a class="docs-heading-anchor-permalink" href="#Newton&#39;s-fractal-(basins-of-a-2D-map)" title="Permalink"></a></h2><pre><code class="language-julia hljs">using Attractors
 function newton_map(z, p, n)
     z1 = z[1] + im*z[2]
     dz1 = newton_f(z1, p[1])/newton_df(z1, p[1])
@@ -12,7 +12,7 @@ ds = DiscreteDynamicalSystem(newton_map, [0.1, 0.2], [3.0])
 xg = yg = range(-1.5, 1.5; length = 400)
 grid = (xg, yg)
 # Use non-sparse for using `basins_of_attraction`
-mapper_newton = AttractorsViaRecurrences(ds, grid;
+mapper_newton = BasinMapRecurrences(ds, grid;
     sparse = false, consecutive_lost_steps = 1000
 )
 basins, attractors = basins_of_attraction(mapper_newton; show_progress = false)
@@ -43,12 +43,12 @@ basins</code></pre><pre class="documenter-example-output"><code class="nohighlig
 fig = heatmap_basins_attractors(grid, basins, attractors)</code></pre><img alt="Example block output" src="c7191c92.png"/><p>Instead of computing the full basins, we could get only the fractions of the basins of attractions using <a href="../api/#Attractors.basins_fractions"><code>basins_fractions</code></a>, which is typically the more useful thing to do in a high dimensional system. In such cases it is also typically more useful to define a sampler that generates initial conditions on the fly instead of pre-defining some initial conditions (as is done in <a href="../api/#Attractors.basins_of_attraction"><code>basins_of_attraction</code></a>. This is simple to do:</p><pre><code class="language-julia hljs">sampler, = statespace_sampler(grid)
 
 basins = basins_fractions(mapper_newton, sampler)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, Float64} with 3 entries:
-  2 =&gt; 0.297
-  3 =&gt; 0.366
-  1 =&gt; 0.337</code></pre><p>in this case, to also get the attractors we simply extract them from the underlying storage of the mapper:</p><pre><code class="language-julia hljs">attractors = extract_attractors(mapper_newton)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, StateSpaceSet{2, Float64, SVector{2, Float64}}} with 3 entries:
+  2 =&gt; 0.344
+  3 =&gt; 0.339
+  1 =&gt; 0.317</code></pre><p>in this case, to also get the attractors we simply extract them from the underlying storage of the mapper:</p><pre><code class="language-julia hljs">attractors = extract_attractors(mapper_newton)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, StateSpaceSet{2, Float64, SVector{2, Float64}}} with 3 entries:
   2 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points
   3 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points
-  1 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points</code></pre><h2 id="Shading-basins-according-to-convergence-time"><a class="docs-heading-anchor" href="#Shading-basins-according-to-convergence-time">Shading basins according to convergence time</a><a id="Shading-basins-according-to-convergence-time-1"></a><a class="docs-heading-anchor-permalink" href="#Shading-basins-according-to-convergence-time" title="Permalink"></a></h2><p>Continuing from above, we can utilize the <a href="../api/#Attractors.convergence_and_basins_of_attraction"><code>convergence_and_basins_of_attraction</code></a> function, and the <a href="../api/#Attractors.shaded_basins_heatmap"><code>shaded_basins_heatmap</code></a> plotting utility function, to shade the basins of attraction based on the convergence time, with lighter colors indicating faster convergence to the attractor.</p><pre><code class="language-julia hljs">mapper_newton = AttractorsViaRecurrences(ds, grid;
+  1 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points</code></pre><h2 id="Shading-basins-according-to-convergence-time"><a class="docs-heading-anchor" href="#Shading-basins-according-to-convergence-time">Shading basins according to convergence time</a><a id="Shading-basins-according-to-convergence-time-1"></a><a class="docs-heading-anchor-permalink" href="#Shading-basins-according-to-convergence-time" title="Permalink"></a></h2><p>Continuing from above, we can utilize the <a href="../api/#Attractors.convergence_and_basins_of_attraction"><code>convergence_and_basins_of_attraction</code></a> function, and the <a href="../api/#Attractors.shaded_basins_heatmap"><code>shaded_basins_heatmap</code></a> plotting utility function, to shade the basins of attraction based on the convergence time, with lighter colors indicating faster convergence to the attractor.</p><pre><code class="language-julia hljs">mapper_newton = BasinMapRecurrences(ds, grid;
     sparse = false, consecutive_lost_steps = 1000
 )
 
@@ -63,13 +63,13 @@ for atr in values(attractors)
     shocks[u0] = minimal_critical_shock(mapper_newton, u0, (-1.5,1.5), algo_bb)
 end
 shocks</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Any, Any} with 3 entries:
-  [-0.5, -0.866025] =&gt; [0.592005, 0.190977]
-  [1.0, 0.0]        =&gt; [-0.461394, 0.417202]
-  [-0.5, 0.866025]  =&gt; [-0.101303, -0.614684]</code></pre><p>To visualize results we can make use of previously defined heatmap</p><pre><code class="language-julia hljs">ax =  content(fig[1,1])
+  [-0.5, -0.866025] =&gt; [0.592005, 0.190975]
+  [1.0, 0.0]        =&gt; [-0.48168, 0.395073]
+  [-0.5, 0.866025]  =&gt; [-0.13061, -0.60818]</code></pre><p>To visualize results we can make use of previously defined heatmap</p><pre><code class="language-julia hljs">ax =  content(fig[1,1])
 for (atr, shock) in shocks
     lines!(ax, [atr, atr + shock]; color = :orange, linewidth = 3)
 end
-fig</code></pre><img alt="Example block output" src="505233e8.png"/><h2 id="Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum"><a class="docs-heading-anchor" href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum">Fractality of 2D basins of the (4D) magnetic pendulum</a><a id="Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum-1"></a><a class="docs-heading-anchor-permalink" href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum" title="Permalink"></a></h2><p>In this section we will calculate the basins of attraction of the four-dimensional magnetic pendulum. We know that the attractors of this system are all individual fixed points on the (x, y) plane so we will only compute the basins there. We can also use this opportunity to highlight a different method, the <a href="../api/#Attractors.AttractorsViaProximity"><code>AttractorsViaProximity</code></a> which works when we already know where the attractors are. Furthermore we will also use a <code>ProjectedDynamicalSystem</code> to project the 4D system onto a 2D plane, saving a lot of computational time!</p><h3 id="Computing-the-basins"><a class="docs-heading-anchor" href="#Computing-the-basins">Computing the basins</a><a id="Computing-the-basins-1"></a><a class="docs-heading-anchor-permalink" href="#Computing-the-basins" title="Permalink"></a></h3><p>First we need to load in the magnetic pendulum from the predefined dynamical systems library</p><pre><code class="language-julia hljs">using Attractors, CairoMakie
+fig</code></pre><img alt="Example block output" src="136f3db8.png"/><h2 id="Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum"><a class="docs-heading-anchor" href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum">Fractality of 2D basins of the (4D) magnetic pendulum</a><a id="Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum-1"></a><a class="docs-heading-anchor-permalink" href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum" title="Permalink"></a></h2><p>In this section we will calculate the basins of attraction of the four-dimensional magnetic pendulum. We know that the attractors of this system are all individual fixed points on the (x, y) plane so we will only compute the basins there. We can also use this opportunity to highlight a different method, the <a href="../api/#Attractors.BasinMapProximity"><code>BasinMapProximity</code></a> which works when we already know where the attractors are. Furthermore we will also use a <code>ProjectedDynamicalSystem</code> to project the 4D system onto a 2D plane, saving a lot of computational time!</p><h3 id="Computing-the-basins"><a class="docs-heading-anchor" href="#Computing-the-basins">Computing the basins</a><a id="Computing-the-basins-1"></a><a class="docs-heading-anchor-permalink" href="#Computing-the-basins" title="Permalink"></a></h3><p>First we need to load in the magnetic pendulum from the predefined dynamical systems library</p><pre><code class="language-julia hljs">using Attractors, CairoMakie
 using PredefinedDynamicalSystems
 ds = PredefinedDynamicalSystems.magnetic_pendulum(d=0.2, α=0.2, ω=0.8, N=3)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">4-dimensional CoupledODEs
  deterministic: true
@@ -93,7 +93,7 @@ ds = PredefinedDynamicalSystems.magnetic_pendulum(d=0.2, α=0.2, ω=0.8, N=3)</c
  state:          [0.7094575840693688, 0.704748136859158]
 </code></pre><p>and create an attractor mapper that will map initial conditions to attractors like before</p><pre><code class="language-julia hljs">xg = yg = range(-4, 4; length = 200)
 grid = (xg, yg)
-mapper = AttractorsViaRecurrences(psys, grid; Δt = 1.0)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">AttractorsViaRecurrences
+mapper = BasinMapRecurrences(psys, grid; Δt = 1.0)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">BasinMapRecurrences
  system:      ProjectedDynamicalSystem
  grid:        (-4.0:0.04020100502512563:4.0, -4.0:0.04020100502512563:4.0)
  attractors:  Dict{Int64, StateSpaceSet{2, Float64, SVector{2, Float64}}}()
@@ -102,8 +102,8 @@ heatmap_basins_attractors(grid, basins, attractors)</code></pre><img alt="Exampl
 ε, f_ε, α = uncertainty_exponent(basins)
 fig, ax = lines(log.(ε), log.(f_ε))
 ax.title = "α = $(round(α; digits=3))"
-fig</code></pre><img alt="Example block output" src="848c1496.png"/><p>The actual uncertainty exponent is the slope of the curve (α) and indeed we get an exponent near 0 as we know a-priory the basins have fractal boundaries for the magnetic pendulum.</p><h3 id="Computing-the-tipping-probabilities"><a class="docs-heading-anchor" href="#Computing-the-tipping-probabilities">Computing the tipping probabilities</a><a id="Computing-the-tipping-probabilities-1"></a><a class="docs-heading-anchor-permalink" href="#Computing-the-tipping-probabilities" title="Permalink"></a></h3><p>We will compute the tipping probabilities using the magnetic pendulum's example as the "before" state. For the "after" state we will change the <code>γ</code> parameter of the third magnet to be so small, its basin of attraction will virtually disappear. As we don't know <em>when</em> the basin of the third magnet will disappear, we switch the attractor finding algorithm back to <a href="../api/#Attractors.AttractorsViaRecurrences"><code>AttractorsViaRecurrences</code></a>.</p><pre><code class="language-julia hljs">set_parameter!(psys, :γs, [1.0, 1.0, 0.1])
-mapper = AttractorsViaRecurrences(psys, (xg, yg); Δt = 1)
+fig</code></pre><img alt="Example block output" src="848c1496.png"/><p>The actual uncertainty exponent is the slope of the curve (α) and indeed we get an exponent near 0 as we know a-priory the basins have fractal boundaries for the magnetic pendulum.</p><h3 id="Computing-the-tipping-probabilities"><a class="docs-heading-anchor" href="#Computing-the-tipping-probabilities">Computing the tipping probabilities</a><a id="Computing-the-tipping-probabilities-1"></a><a class="docs-heading-anchor-permalink" href="#Computing-the-tipping-probabilities" title="Permalink"></a></h3><p>We will compute the tipping probabilities using the magnetic pendulum's example as the "before" state. For the "after" state we will change the <code>γ</code> parameter of the third magnet to be so small, its basin of attraction will virtually disappear. As we don't know <em>when</em> the basin of the third magnet will disappear, we switch the attractor finding algorithm back to <a href="../api/#Attractors.BasinMapRecurrences"><code>BasinMapRecurrences</code></a>.</p><pre><code class="language-julia hljs">set_parameter!(psys, :γs, [1.0, 1.0, 0.1])
+mapper = BasinMapRecurrences(psys, (xg, yg); Δt = 1)
 basins_after, attractors_after = basins_of_attraction(
     mapper, (xg, yg); show_progress = false
 )
@@ -118,12 +118,12 @@ heatmap_basins_attractors(grid, basins_after, attractors_after)</code></pre><img
  0.451908  0.548092
  0.548092  0.451908</code></pre><p>As you can see <code>P</code> has size 3×2, as after the change only 2 attractors have been identified in the system (3 still exist but our state space discretization isn't fine enough to find the 3rd because it has such a small basin). Also, the first row of <code>P</code> is 50% probability to each other magnet, as it should be due to the system's symmetry.</p><h2 id="Intermingledness-and-basin-entropy"><a class="docs-heading-anchor" href="#Intermingledness-and-basin-entropy">Intermingledness and basin entropy</a><a id="Intermingledness-and-basin-entropy-1"></a><a class="docs-heading-anchor-permalink" href="#Intermingledness-and-basin-entropy" title="Permalink"></a></h2><p>Continuing from the above example of the magnetic pendulum, we can use it as a demonstration of the concept of <a href="../api/#Attractors.intermingledness"><code>intermingledness</code></a> that was recently introduced in (<a href="../references/#Datseris2026Intermingled">Datseris <em>et al.</em>, 2026</a>) and compare it with the established notion of <a href="../api/#Attractors.basin_entropy"><code>basin_entropy</code></a>.</p><p>To do this well, we will generate two more basins of attraction for the magnetic pendulum at different parameters:</p><pre><code class="language-julia hljs">set_parameter!(psys, :γs, [1.0, 1.0, 1.0])
 set_parameter!(psys, :α, 1.0)
-mapper = AttractorsViaRecurrences(psys, (xg, yg); Δt = 1)
+mapper = BasinMapRecurrences(psys, (xg, yg); Δt = 1)
 basins2, attractors2 = basins_of_attraction(mapper, grid; show_progress = false)
 
 set_parameter!(psys, :α, 2.0)
 set_parameter!(psys, :d, 0.45)
-mapper = AttractorsViaRecurrences(psys, (xg, yg); Δt = 1)
+mapper = BasinMapRecurrences(psys, (xg, yg); Δt = 1)
 basins3, attractors3 = basins_of_attraction(mapper, grid; show_progress = false)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">ArrayBasinsOfAttraction
  ID type:     Int32
  basin size:  (200, 200)
@@ -151,7 +151,27 @@ for (i, b) in enumerate((basins, basins2, basins3))
 end
 
 resize!(fig, 800, 300)
-fig</code></pre><img alt="Example block output" src="79e9452e.png"/><p>As you can see, intermingledness is <em>not</em> a measure of fractality. Even perfectly smooth basins can have very high intermingledness close to 1. It really is about how close points from one basin are to another, on average. Furthermore, it is really difficult for intermingledness to be 0 for well covered basins, unlike basin entropy that covers the range of 0-1 more easily. In (<a href="../references/#Datseris2026Intermingled">Datseris <em>et al.</em>, 2026</a>) intermingledness is introduced primarily for sparse data, and for focusing on specific dimensions. Moreover, intermingledness is defined <em>per</em> basin, while basin entropy is a quantity characterizing the whole basin structure.</p><h2 id="3D-basins-via-recurrences"><a class="docs-heading-anchor" href="#3D-basins-via-recurrences">3D basins via recurrences</a><a id="3D-basins-via-recurrences-1"></a><a class="docs-heading-anchor-permalink" href="#3D-basins-via-recurrences" title="Permalink"></a></h2><p>To showcase the true power of <a href="../api/#Attractors.AttractorsViaRecurrences"><code>AttractorsViaRecurrences</code></a> we need to use a system whose attractors span higher-dimensional space. An example is</p><pre><code class="language-julia hljs">using Attractors
+fig</code></pre><img alt="Example block output" src="79e9452e.png"/><p>As you can see, intermingledness is <em>not</em> a measure of fractality. Even perfectly smooth basins can have very high intermingledness close to 1. It really is about how close points from one basin are to another, on average. Furthermore, it is really difficult for intermingledness to be 0 for well covered basins, unlike basin entropy that covers the range of 0-1 more easily. In (<a href="../references/#Datseris2026Intermingled">Datseris <em>et al.</em>, 2026</a>) intermingledness is introduced primarily for sparse data, and for focusing on specific dimensions. Moreover, intermingledness is defined <em>per</em> basin, while basin entropy is a quantity characterizing the whole basin structure.</p><h2 id="Trivial-featurizing-and-grouping-for-basins-fractions"><a class="docs-heading-anchor" href="#Trivial-featurizing-and-grouping-for-basins-fractions">Trivial featurizing and grouping for basins fractions</a><a id="Trivial-featurizing-and-grouping-for-basins-fractions-1"></a><a class="docs-heading-anchor-permalink" href="#Trivial-featurizing-and-grouping-for-basins-fractions" title="Permalink"></a></h2><p>This is a rather trivial example showcasing the usage of <a href="../api/#Attractors.BasinMapFeaturizeGroup"><code>BasinMapFeaturizeGroup</code></a>. Let us use once again the magnetic pendulum example. For it, we have a really good idea of what features will uniquely describe each attractor: the last points of a trajectory (which should be very close to the magnetic the trajectory converged to). To provide this information to the <a href="../api/#Attractors.BasinMapFeaturizeGroup"><code>BasinMapFeaturizeGroup</code></a> we just create a julia function that returns this last point</p><pre><code class="language-julia hljs">using Attractors
+using PredefinedDynamicalSystems
+
+ds = Systems.magnetic_pendulum(d=0.2, α=0.2, ω=0.8, N=3)
+psys = ProjectedDynamicalSystem(ds, [1, 2], [0.0, 0.0])
+
+function featurizer(X, t)
+    return X[end]
+end
+
+mapper = BasinMapFeaturizeGroup(psys, featurizer; Ttr = 200, T = 1)
+
+xg = yg = range(-4, 4; length = 101)
+
+region = HRectangle([-4, 4], [4, 4])
+sampler, = statespace_sampler(region)
+
+fs = basins_fractions(mapper, sampler; show_progress = false)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, Float64} with 3 entries:
+  2 =&gt; 0.398
+  3 =&gt; 0.255
+  1 =&gt; 0.347</code></pre><p>As expected, the fractions are each about 1/3 due to the system symmetry.</p><h2 id="3D-basins-via-recurrences"><a class="docs-heading-anchor" href="#3D-basins-via-recurrences">3D basins via recurrences</a><a id="3D-basins-via-recurrences-1"></a><a class="docs-heading-anchor-permalink" href="#3D-basins-via-recurrences" title="Permalink"></a></h2><p>To showcase the true power of <a href="../api/#Attractors.BasinMapRecurrences"><code>BasinMapRecurrences</code></a> we need to use a system whose attractors span higher-dimensional space. An example is</p><pre><code class="language-julia hljs">using Attractors
 using PredefinedDynamicalSystems
 ds = PredefinedDynamicalSystems.thomas_cyclical(b = 0.1665)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">3-dimensional CoupledODEs
  deterministic: true
@@ -165,7 +185,7 @@ ds = PredefinedDynamicalSystems.thomas_cyclical(b = 0.1665)</code></pre><pre cla
  state:         [1.0, 0.0, 0.0]
 </code></pre><p>which, for this parameter, contains 3 coexisting attractors which are entangled periodic orbits that span across all three dimensions.</p><p>To compute the basins we define a three-dimensional grid and call on it <a href="../api/#Attractors.basins_of_attraction"><code>basins_of_attraction</code></a>.</p><pre><code class="language-julia hljs"># This computation takes about an hour
 xg = yg = zg = range(-6.0, 6.0; length = 251)
-mapper = AttractorsViaRecurrences(ds, (xg, yg, zg); sparse = false)
+mapper = BasinMapRecurrences(ds, (xg, yg, zg); sparse = false)
 basins, attractors = basins_of_attraction(mapper)
 attractors</code></pre><pre><code class="nohighlight hljs">Dict{Int16, StateSpaceSet{3, Float64}} with 5 entries:
   5 =&gt; 3-dimensional StateSpaceSet{Float64} with 1 points
@@ -173,7 +193,7 @@ attractors</code></pre><pre><code class="nohighlight hljs">Dict{Int16, StateSpac
   6 =&gt; 3-dimensional StateSpaceSet{Float64} with 1 points
   2 =&gt; 3-dimensional StateSpaceSet{Float64} with 538 points
   3 =&gt; 3-dimensional StateSpaceSet{Float64} with 537 points
-  1 =&gt; 3-dimensional StateSpaceSet{Float64} with 1 points</code></pre><p><em>Note: the reason we have 6 attractors here is because the algorithm also finds 3 unstable fixed points and labels them as attractors. This happens because we have provided initial conditions on the grid <code>xg, yg, zg</code> that start exactly on the unstable fixed points, and hence stay there forever, and hence are perceived as attractors by the recurrence algorithm. As you will see in the video below, they don't have any basin fractions</em></p><p>The basins of attraction are very complicated. We can try to visualize them by animating the 2D slices at each z value, to obtain:</p><video autoplay="" controls="" height="auto" loop="" width="75%"><source src="https://raw.githubusercontent.com/JuliaDynamics/JuliaDynamics/master/videos/attractors/cyclical_basins.mp4?raw=true" type="video/mp4"/></video><p>Then, we visualize the attractors to obtain:</p><video autoplay="" controls="" height="auto" loop="" width="75%"><source src="https://raw.githubusercontent.com/JuliaDynamics/JuliaDynamics/master/videos/attractors/cyclical_attractors.mp4?raw=true" type="video/mp4"/></video><p>In the animation above, the scattered points are the attractor values the function <a href="../api/#Attractors.AttractorsViaRecurrences"><code>AttractorsViaRecurrences</code></a> found by itself. Of course, for the periodic orbits these points are incomplete. Once the function's logic understood we are on an attractor, it stops computing. However, we also simulated lines, by evolving initial conditions colored appropriately with the basins output.</p><p>The animation was produced with the code:</p><pre><code class="language-julia hljs">using GLMakie
+  1 =&gt; 3-dimensional StateSpaceSet{Float64} with 1 points</code></pre><p><em>Note: the reason we have 6 attractors here is because the algorithm also finds 3 unstable fixed points and labels them as attractors. This happens because we have provided initial conditions on the grid <code>xg, yg, zg</code> that start exactly on the unstable fixed points, and hence stay there forever, and hence are perceived as attractors by the recurrence algorithm. As you will see in the video below, they don't have any basin fractions</em></p><p>The basins of attraction are very complicated. We can try to visualize them by animating the 2D slices at each z value, to obtain:</p><video autoplay="" controls="" height="auto" loop="" width="75%"><source src="https://raw.githubusercontent.com/JuliaDynamics/JuliaDynamics/master/videos/attractors/cyclical_basins.mp4?raw=true" type="video/mp4"/></video><p>Then, we visualize the attractors to obtain:</p><video autoplay="" controls="" height="auto" loop="" width="75%"><source src="https://raw.githubusercontent.com/JuliaDynamics/JuliaDynamics/master/videos/attractors/cyclical_attractors.mp4?raw=true" type="video/mp4"/></video><p>In the animation above, the scattered points are the attractor values the function <a href="../api/#Attractors.BasinMapRecurrences"><code>BasinMapRecurrences</code></a> found by itself. Of course, for the periodic orbits these points are incomplete. Once the function's logic understood we are on an attractor, it stops computing. However, we also simulated lines, by evolving initial conditions colored appropriately with the basins output.</p><p>The animation was produced with the code:</p><pre><code class="language-julia hljs">using GLMakie
 fig = Figure()
 display(fig)
 ax = fig[1,1] = Axis3(fig; title = "found attractors")
@@ -221,7 +241,7 @@ pmap = PoincareMap(ds, plane)</code></pre><pre class="documenter-example-output"
  state:         [1.0, 0.0, 0.0]
 </code></pre><p>We define the same grid as before, but now only we only use the x-y coordinates. This is because we can utilize the special <code>reinit!</code> method of the <code>PoincareMap</code>, that allows us to initialize a new state directly on the hyperplane (and then the remaining variable of the dynamical system takes its value from the hyperplane itself).</p><pre><code class="language-julia hljs">xg = yg = range(-6.0, 6.0; length = 250)
 grid = (xg, yg)
-mapper = AttractorsViaRecurrences(pmap, grid; sparse = false)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">AttractorsViaRecurrences
+mapper = BasinMapRecurrences(pmap, grid; sparse = false)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">BasinMapRecurrences
  system:      PoincareMap
  grid:        (-6.0:0.04819277108433735:6.0, -6.0:0.04819277108433735:6.0)
  attractors:  Dict{Int64, StateSpaceSet{2, Float64, SVector{2, Float64}}}()
@@ -233,7 +253,7 @@ mapper = AttractorsViaRecurrences(pmap, grid; sparse = false)</code></pre><pre c
                 2 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points
                 3 =&gt; 2-dimensional StateSpaceSet{Float64} with 5 points
                 1 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points
-</code></pre><pre><code class="language-julia hljs">heatmap_basins_attractors(grid, basins, attractors)</code></pre><img alt="Example block output" src="9dedb64c.png"/><p><em>just like in the example above, there is a fourth attractor with 0 basin fraction. This is an unstable fixed point, and exists exactly because we provided a grid with the unstable fixed point exactly on this grid</em></p><h2 id="Irregular-grid-for-AttractorsViaRecurrences"><a class="docs-heading-anchor" href="#Irregular-grid-for-AttractorsViaRecurrences">Irregular grid for <code>AttractorsViaRecurrences</code></a><a id="Irregular-grid-for-AttractorsViaRecurrences-1"></a><a class="docs-heading-anchor-permalink" href="#Irregular-grid-for-AttractorsViaRecurrences" title="Permalink"></a></h2><p>It is possible to provide an irregularly spaced grid to <code>AttractorsViaRecurrences</code>. This can make algorithm performance better for continuous time systems where the state space flow has significantly different speed in some state space regions versus others.</p><p>In the following example the dynamical system has only one attractor: a limit cycle. However, near the origin (0, 0) the timescale of the dynamics becomes very slow. As the trajectory is stuck there for quite a while, the recurrences algorithm may identify this region as an "attractor" (incorrectly). The solutions vary and can be to increase drastically the max time checks for finding attractors, or making the grid much more fine. Alternatively, one can provide a grid that is only more fine near the origin and not fine elsewhere.</p><p>The example below highlights that for rather coarse settings of grid and convergence thresholds, using a grid that is finer near (0, 0) gives correct results:</p><pre><code class="language-julia hljs">using Attractors, CairoMakie
+</code></pre><pre><code class="language-julia hljs">heatmap_basins_attractors(grid, basins, attractors)</code></pre><img alt="Example block output" src="9dedb64c.png"/><p><em>just like in the example above, there is a fourth attractor with 0 basin fraction. This is an unstable fixed point, and exists exactly because we provided a grid with the unstable fixed point exactly on this grid</em></p><h2 id="Irregular-grid-for-BasinMapRecurrences"><a class="docs-heading-anchor" href="#Irregular-grid-for-BasinMapRecurrences">Irregular grid for <code>BasinMapRecurrences</code></a><a id="Irregular-grid-for-BasinMapRecurrences-1"></a><a class="docs-heading-anchor-permalink" href="#Irregular-grid-for-BasinMapRecurrences" title="Permalink"></a></h2><p>It is possible to provide an irregularly spaced grid to <code>BasinMapRecurrences</code>. This can make algorithm performance better for continuous time systems where the state space flow has significantly different speed in some state space regions versus others.</p><p>In the following example the dynamical system has only one attractor: a limit cycle. However, near the origin (0, 0) the timescale of the dynamics becomes very slow. As the trajectory is stuck there for quite a while, the recurrences algorithm may identify this region as an "attractor" (incorrectly). The solutions vary and can be to increase drastically the max time checks for finding attractors, or making the grid much more fine. Alternatively, one can provide a grid that is only more fine near the origin and not fine elsewhere.</p><p>The example below highlights that for rather coarse settings of grid and convergence thresholds, using a grid that is finer near (0, 0) gives correct results:</p><pre><code class="language-julia hljs">using Attractors, CairoMakie
 
 function predator_prey_fastslow(u, p, t)
     α, γ, ϵ, ν, h, K, m = p
@@ -259,7 +279,7 @@ ax = Axis(fig[1,1])
 # when pow &gt; 1, the grid is finer close to zero
 for pow in (1, 2)
     xg = yg = range(0, 18.0^(1/pow); length = 200).^pow
-    mapper = AttractorsViaRecurrences(ds, (xg, yg);
+    mapper = BasinMapRecurrences(ds, (xg, yg);
         Dt = 0.1, sparse = true,
         consecutive_recurrences = 10, attractor_locate_steps = 10,
         maximum_iterations = 1000,
@@ -274,7 +294,7 @@ end
 
 axislegend(ax)
 
-fig</code></pre><img alt="Example block output" src="d48bfd95.png"/><h2 id="Subdivision-Based-Grid-for-AttractorsViaRecurrences"><a class="docs-heading-anchor" href="#Subdivision-Based-Grid-for-AttractorsViaRecurrences">Subdivision Based Grid for <code>AttractorsViaRecurrences</code></a><a id="Subdivision-Based-Grid-for-AttractorsViaRecurrences-1"></a><a class="docs-heading-anchor-permalink" href="#Subdivision-Based-Grid-for-AttractorsViaRecurrences" title="Permalink"></a></h2><p>To achieve even better results for this kind of problematic systems than with previuosly introduced <code>Irregular Grids</code>  we provide a functionality to construct <code>Subdivision Based Grids</code> in which one can obtain more coarse or dense structure not only along some axis but for a specific regions where the state space flow has significantly different speed. <a href="../api/#Attractors.subdivision_based_grid"><code>subdivision_based_grid</code></a> enables automatic evaluation of velocity vectors for regions of originally user specified grid to further treat those areas as having more dense or coarse structure than others.</p><pre><code class="language-julia hljs">using Attractors, CairoMakie
+fig</code></pre><img alt="Example block output" src="d48bfd95.png"/><h2 id="Subdivision-Based-Grid-for-BasinMapRecurrences"><a class="docs-heading-anchor" href="#Subdivision-Based-Grid-for-BasinMapRecurrences">Subdivision Based Grid for <code>BasinMapRecurrences</code></a><a id="Subdivision-Based-Grid-for-BasinMapRecurrences-1"></a><a class="docs-heading-anchor-permalink" href="#Subdivision-Based-Grid-for-BasinMapRecurrences" title="Permalink"></a></h2><p>To achieve even better results for this kind of problematic systems than with previuosly introduced <code>Irregular Grids</code>  we provide a functionality to construct <code>Subdivision Based Grids</code> in which one can obtain more coarse or dense structure not only along some axis but for a specific regions where the state space flow has significantly different speed. <a href="../api/#Attractors.subdivision_based_grid"><code>subdivision_based_grid</code></a> enables automatic evaluation of velocity vectors for regions of originally user specified grid to further treat those areas as having more dense or coarse structure than others.</p><pre><code class="language-julia hljs">using Attractors, CairoMakie
 
 function predator_prey_fastslow(u, p, t)
     α, γ, ϵ, ν, h, K, m = p
@@ -320,7 +340,7 @@ grid.lvl_array</code></pre><pre class="documenter-example-output"><code class="n
  4  3  3  3  2  2  2  2  2  1  1  1  1     1  0  0  0  0  0  0  0  0  0  0  0</code></pre><p>The constructed array corresponds to levels of discretization for specific regions of the grid as a powers of 2, meaning that if area index is assigned to be <code>3</code>, for example, the algorithm will treat the region as one being <code>2^3 = 8</code> times more dense than originally user provided grid <code>(xg, yg)</code>.</p><p>Now upon the construction of this structure, one can simply pass it into mapper function as usual.</p><pre><code class="language-julia hljs">fig = Figure()
 ax = Axis(fig[1,1])
 # passing SubdivisionBasedGrid into mapper
-mapper = AttractorsViaRecurrences(ds, grid;
+mapper = BasinMapRecurrences(ds, grid;
         Dt = 0.1, sparse = true,
         consecutive_recurrences = 10, attractor_locate_steps = 10,
         maximum_iterations = 1000,
@@ -335,7 +355,7 @@ scatter!(ax, vec(attractors_SBD[1]); label = "SubdivisionBasedGrid")
 
 # to compare the results we also construct RegularGrid of same length here
 xg = yg = range(0, 18, length = 30)
-mapper = AttractorsViaRecurrences(ds, (xg, yg);
+mapper = BasinMapRecurrences(ds, (xg, yg);
         Dt = 0.1, sparse = true,
         consecutive_recurrences = 10, attractor_locate_steps = 10,
         maximum_iterations = 1000,
@@ -354,7 +374,7 @@ ds = Systems.magnetic_pendulum(; d = 0.3, α = 0.2, ω = 0.5)
 xg = yg = range(-3, 3; length = 101)
 ds = ProjectedDynamicalSystem(ds, 1:2, [0.0, 0.0])
 # Choose a mapper via recurrences
-mapper = AttractorsViaRecurrences(ds, (xg, yg); Δt = 1.0)
+mapper = BasinMapRecurrences(ds, (xg, yg); Δt = 1.0)
 # What parameter to change, over what range
 γγ = range(1, 0; length = 101)
 prange = [[1, 1, γ] for γ in γγ]
@@ -388,70 +408,7 @@ for (i, γ) in enumerate(γγ)
         scatter!(ax, γ, real_number_repr(attractor); color = Cycled(k))
     end
 end
-fig</code></pre><img alt="Example block output" src="91e3f734.png"/><p>as you can see, two of the three fixed points, and their stability, do not depend at all on the parameter value, since this parameter value tunes the magnetic strength of only the third magnet. Nevertheless, the <strong>fractions of basin of attraction</strong> of all attractors depend strongly on the parameter. This is a simple example that highlights excellently how this new approach we propose here should be used even if one has already done a standard linearized bifurcation analysis.</p><h2 id="aggregation_example"><a class="docs-heading-anchor" href="#aggregation_example">Extinction of a species in a multistable competition model</a><a id="aggregation_example-1"></a><a class="docs-heading-anchor-permalink" href="#aggregation_example" title="Permalink"></a></h2><p>In this advanced example we utilize both <a href="../api/#Attractors.RecurrencesFindAndMatch"><code>RecurrencesFindAndMatch</code></a> and <a href="../api/#Attractors.aggregate_attractor_fractions"><code>aggregate_attractor_fractions</code></a> in analyzing species extinction in a dynamical model of competition between multiple species. The final goal is to show the percentage of how much of the state space leads to the extinction or not of a pre-determined species, as we vary a parameter. The model however displays extreme multistability, a feature we want to measure and preserve before aggregating information into "extinct or not".</p><p>To measure and preserve this we will apply <a href="../api/#Attractors.RecurrencesFindAndMatch"><code>RecurrencesFindAndMatch</code></a> as-is first. Then we can aggregate information. First we have</p><pre><code class="language-julia hljs">using Attractors, OrdinaryDiffEqVerner
-using PredefinedDynamicalSystems
-using Random: Xoshiro
-# arguments to algorithms
-samples_per_parameter = 1000
-total_parameter_values = 101
-diffeq = (alg = Vern9(), reltol = 1e-9, abstol = 1e-9, maxiters = Inf)
-recurrences_kwargs = (; Δt= 1.0, consecutive_recurrences=9, diffeq);
-# initialize dynamical system and sampler
-ds = PredefinedDynamicalSystems.multispecies_competition() # 8-dimensional
-ds = CoupledODEs(ODEProblem(ds), diffeq)
-# define grid in state space
-xg = range(0, 60; length = 300)
-grid = ntuple(x -&gt; xg, 8)
-prange = range(0.2, 0.3; length = total_parameter_values)
-pidx = :D
-sampler, = statespace_sampler(grid, 1234)
-# initialize mapper
-mapper = AttractorsViaRecurrences(ds, grid; recurrences_kwargs...)
-# perform continuation of attractors and their basins
-alg = RecurrencesFindAndMatch(mapper; threshold = Inf)
-fractions_cont, attractors_cont = global_continuation(
-    alg, prange, pidx, sampler;
-    show_progress = true, samples_per_parameter
-)
-plot_basins_curves(fractions_cont, prange; separatorwidth = 1)</code></pre><p><img alt="" src="https://raw.githubusercontent.com/JuliaDynamics/JuliaDynamics/master/videos/attractors/multispecies_competition_fractions.png"/></p><p><em>this example is not actually run when building the docs, because it takes about 60 minutes to complete depending on the computer; we load precomputed results instead</em></p><p>As you can see, the system has extreme multistability with 64 unique attractors (according to the default matching behavior in <a href="../api/#Attractors.RecurrencesFindAndMatch"><code>RecurrencesFindAndMatch</code></a>; a stricter matching with less than <code>Inf</code> threshold would generate more "distinct" attractors). One could also isolate a specific parameter slice, and do the same as what we do in the <a href="#Fractality-of-2D-basins-of-the-(4D)-magnetic-pendulum">Fractality of 2D basins of the (4D) magnetic pendulum</a> example, to prove that the basin boundaries are fractal, thereby indeed confirming the paper title "Fundamental Unpredictability".</p><p>Regardless, we now want to continue our analysis to provide a figure similar to the above but only with two colors: fractions of attractors where a species is extinct or not. Here's how:</p><pre><code class="language-julia hljs">species = 3 # species we care about its existence
-
-featurizer = (A) -&gt; begin
-    i = isextinct(A, species)
-    return SVector(Int32(i))
-end
-isextinct(A, idx = unitidxs) = all(a -&gt; a &lt;= 1e-2, A[:, idx])
-
-# `minneighbors = 1` is crucial for grouping single attractors
-groupingconfig = GroupViaClustering(; min_neighbors=1, optimal_radius_method=0.5)
-
-aggregated_fractions, aggregated_info = aggregate_attractor_fractions(
-    fractions_cont, attractors_cont, featurizer, groupingconfig
-)
-
-plot_basins_curves(aggregated_fractions, prange;
-    separatorwidth = 1, colors = ["green", "black"],
-    labels = Dict(1 =&gt; "extinct", 2 =&gt; "alive"),
-)</code></pre><p><img alt="" src="https://raw.githubusercontent.com/JuliaDynamics/JuliaDynamics/master/videos/attractors/multispecies_competition_fractions_aggr.png"/></p><p>(in hindsight, the labels are reversed; attractor 1 is the alive one, but oh well)</p><h2 id="Trivial-featurizing-and-grouping-for-basins-fractions"><a class="docs-heading-anchor" href="#Trivial-featurizing-and-grouping-for-basins-fractions">Trivial featurizing and grouping for basins fractions</a><a id="Trivial-featurizing-and-grouping-for-basins-fractions-1"></a><a class="docs-heading-anchor-permalink" href="#Trivial-featurizing-and-grouping-for-basins-fractions" title="Permalink"></a></h2><p>This is a rather trivial example showcasing the usage of <a href="../api/#Attractors.AttractorsViaFeaturizing"><code>AttractorsViaFeaturizing</code></a>. Let us use once again the magnetic pendulum example. For it, we have a really good idea of what features will uniquely describe each attractor: the last points of a trajectory (which should be very close to the magnetic the trajectory converged to). To provide this information to the <a href="../api/#Attractors.AttractorsViaFeaturizing"><code>AttractorsViaFeaturizing</code></a> we just create a julia function that returns this last point</p><pre><code class="language-julia hljs">using Attractors
-using PredefinedDynamicalSystems
-
-ds = Systems.magnetic_pendulum(d=0.2, α=0.2, ω=0.8, N=3)
-psys = ProjectedDynamicalSystem(ds, [1, 2], [0.0, 0.0])
-
-function featurizer(X, t)
-    return X[end]
-end
-
-mapper = AttractorsViaFeaturizing(psys, featurizer; Ttr = 200, T = 1)
-
-xg = yg = range(-4, 4; length = 101)
-
-region = HRectangle([-4, 4], [4, 4])
-sampler, = statespace_sampler(region)
-
-fs = basins_fractions(mapper, sampler; show_progress = false)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, Float64} with 3 entries:
-  2 =&gt; 0.236
-  3 =&gt; 0.361
-  1 =&gt; 0.403</code></pre><p>As expected, the fractions are each about 1/3 due to the system symmetry.</p><h2 id="Featurizing-and-grouping-across-parameters-(MCBB)"><a class="docs-heading-anchor" href="#Featurizing-and-grouping-across-parameters-(MCBB)">Featurizing and grouping across parameters (MCBB)</a><a id="Featurizing-and-grouping-across-parameters-(MCBB)-1"></a><a class="docs-heading-anchor-permalink" href="#Featurizing-and-grouping-across-parameters-(MCBB)" title="Permalink"></a></h2><p>Here we showcase the example of the Monte Carlo Basin Bifurcation publication. For this, we will use <a href="../api/#Attractors.FeaturizeGroupAcrossParameter"><code>FeaturizeGroupAcrossParameter</code></a> while also providing a <code>par_weight = 1</code> keyword. However, we will not use a network of 2nd order Kuramoto oscillators (as done in the paper by Gelbrecht et al.) because it is too costly to run on CI. Instead, we will use "dummy" system which we know analytically the attractors and how they behave versus a parameter.</p><p>the Henon map and try to group attractors into period 1 (fixed point), period 3, and divergence to infinity. We will also use a pre-determined optimal radius for clustering, as we know a-priory the expected distances of features in feature space (due to the contrived form of the <code>featurizer</code> function below).</p><pre><code class="language-julia hljs">using Attractors, Random
+fig</code></pre><img alt="Example block output" src="91e3f734.png"/><p>as you can see, two of the three fixed points, and their stability, do not depend at all on the parameter value, since this parameter value tunes the magnetic strength of only the third magnet. Nevertheless, the <strong>fractions of basin of attraction</strong> of all attractors depend strongly on the parameter. This is a simple example that highlights excellently how this new approach we propose here should be used even if one has already done a standard linearized bifurcation analysis.</p><h2 id="Featurizing-and-grouping-across-parameters-(MCBB-/-FGAP)"><a class="docs-heading-anchor" href="#Featurizing-and-grouping-across-parameters-(MCBB-/-FGAP)">Featurizing and grouping across parameters (MCBB / FGAP)</a><a id="Featurizing-and-grouping-across-parameters-(MCBB-/-FGAP)-1"></a><a class="docs-heading-anchor-permalink" href="#Featurizing-and-grouping-across-parameters-(MCBB-/-FGAP)" title="Permalink"></a></h2><p>Here we showcase the example of the Monte Carlo Basin Bifurcation publication. For this, we will use <a href="../api/#Attractors.FeaturizeGroupAcrossParameter"><code>FeaturizeGroupAcrossParameter</code></a> while also providing a <code>par_weight = 1</code> keyword. However, we will not use a network of 2nd order Kuramoto oscillators (as done in the paper by Gelbrecht et al.) because it is too costly to run on CI. Instead, we will use "dummy" system which we know analytically the attractors and how they behave versus a parameter.</p><pre><code class="language-julia hljs">using Attractors, Random
 
 function dumb_map(dz, z, p, n)
     x, y = z
@@ -486,52 +443,52 @@ ridx = 1
 
 featurizer(a, t) = a[end]
 clusterspecs = GroupViaClustering(optimal_radius_method = "silhouettes", max_used_features = 200)
-mapper = AttractorsViaFeaturizing(ds, featurizer, clusterspecs; T = 20, threaded = true)
+mapper = BasinMapFeaturizeGroup(ds, featurizer, clusterspecs; T = 20, threaded = true)
 gap = FeaturizeGroupAcrossParameter(mapper; par_weight = 1.0)
 fractions_cont, clusters_info = global_continuation(
     gap, rrange, ridx, sampler; show_progress = false
 )
 fractions_cont</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">21-element Vector{Dict{Int64, Float64}}:
  Dict(1 =&gt; 1.0)
- Dict(1 =&gt; 1.0)
- Dict(1 =&gt; 1.0)
- Dict(1 =&gt; 1.0)
- Dict(1 =&gt; 1.0)
- Dict(2 =&gt; 0.47, 3 =&gt; 0.53)
- Dict(5 =&gt; 0.52, 4 =&gt; 0.48)
- Dict(6 =&gt; 0.56, 7 =&gt; 0.44)
- Dict(9 =&gt; 0.56, 8 =&gt; 0.44)
- Dict(11 =&gt; 0.46, 10 =&gt; 0.54)
+ Dict(2 =&gt; 1.0)
+ Dict(3 =&gt; 1.0)
+ Dict(4 =&gt; 1.0)
+ Dict(5 =&gt; 1.0)
+ Dict(6 =&gt; 0.47, 7 =&gt; 0.53)
+ Dict(9 =&gt; 0.52, 8 =&gt; 0.48)
+ Dict(11 =&gt; 0.44, 10 =&gt; 0.56)
+ Dict(13 =&gt; 0.56, 12 =&gt; 0.44)
+ Dict(15 =&gt; 0.46, 14 =&gt; 0.54)
  ⋮
- Dict(16 =&gt; 0.48, 17 =&gt; 0.52)
- Dict(18 =&gt; 0.54, 19 =&gt; 0.46)
- Dict(20 =&gt; 0.53, 21 =&gt; 0.47)
- Dict(22 =&gt; 0.4, 23 =&gt; 0.6)
- Dict(25 =&gt; 0.51, 24 =&gt; 0.49)
- Dict(27 =&gt; 0.49, 26 =&gt; 0.51)
- Dict(29 =&gt; 0.54, 28 =&gt; 0.46)
- Dict(31 =&gt; 0.55, 30 =&gt; 0.45)
- Dict(32 =&gt; 0.47, 33 =&gt; 0.53)</code></pre><p>Looking at the information of the "attractors" (here the clusters of the grouping procedure) does not make it clear which label corresponds to which kind of attractor, but we can look at the:</p><pre><code class="language-julia hljs">clusters_info</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">21-element Vector{Dict{Int64, Vector{Float64}}}:
+ Dict(20 =&gt; 0.48, 21 =&gt; 0.52)
+ Dict(22 =&gt; 0.54, 23 =&gt; 0.46)
+ Dict(25 =&gt; 0.47, 24 =&gt; 0.53)
+ Dict(27 =&gt; 0.6, 26 =&gt; 0.4)
+ Dict(29 =&gt; 0.51, 28 =&gt; 0.49)
+ Dict(31 =&gt; 0.49, 30 =&gt; 0.51)
+ Dict(32 =&gt; 0.46, 33 =&gt; 0.54)
+ Dict(34 =&gt; 0.45, 35 =&gt; 0.55)
+ Dict(36 =&gt; 0.47, 37 =&gt; 0.53)</code></pre><p>Looking at the information of the "attractors" (here the clusters of the grouping procedure) does not make it clear which label corresponds to which kind of attractor, but we can look at the:</p><pre><code class="language-julia hljs">clusters_info</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">21-element Vector{Dict{Int64, Vector{Float64}}}:
  Dict(1 =&gt; [0.0, 0.0])
- Dict(1 =&gt; [0.0, 0.0])
- Dict(1 =&gt; [0.0, 0.0])
- Dict(1 =&gt; [0.0, 0.0])
- Dict(1 =&gt; [0.0, 0.0])
- Dict(2 =&gt; [0.5, 0.5], 3 =&gt; [-0.5, -0.5])
- Dict(5 =&gt; [-0.6000000000000006, -0.6000000000000006], 4 =&gt; [0.6000000000000005, 0.6000000000000005])
- Dict(6 =&gt; [-0.7000000000000002, -0.7000000000000002], 7 =&gt; [0.6999999999999995, 0.6999999999999995])
- Dict(9 =&gt; [0.7999999999999995, 0.7999999999999995], 8 =&gt; [-0.8, -0.8])
- Dict(11 =&gt; [0.8999999999999992, 0.8999999999999992], 10 =&gt; [-0.8999999999999991, -0.8999999999999991])
+ Dict(2 =&gt; [0.0, 0.0])
+ Dict(3 =&gt; [0.0, 0.0])
+ Dict(4 =&gt; [0.0, 0.0])
+ Dict(5 =&gt; [0.0, 0.0])
+ Dict(6 =&gt; [0.5, 0.5], 7 =&gt; [-0.5, -0.5])
+ Dict(9 =&gt; [-0.6000000000000006, -0.6000000000000006], 8 =&gt; [0.6000000000000005, 0.6000000000000005])
+ Dict(11 =&gt; [0.6999999999999995, 0.6999999999999995], 10 =&gt; [-0.7000000000000002, -0.7000000000000002])
+ Dict(13 =&gt; [0.7999999999999995, 0.7999999999999995], 12 =&gt; [-0.8, -0.8])
+ Dict(15 =&gt; [0.8999999999999992, 0.8999999999999992], 14 =&gt; [-0.8999999999999991, -0.8999999999999991])
  ⋮
- Dict(16 =&gt; [-1.200000000000001, -1.200000000000001], 17 =&gt; [1.2000000000000013, 1.2000000000000013])
- Dict(18 =&gt; [-1.2999999999999987, -1.2999999999999987], 19 =&gt; [1.299999999999999, 1.299999999999999])
- Dict(20 =&gt; [-1.4000000000000001, -1.4000000000000001], 21 =&gt; [1.3999999999999992, 1.3999999999999992])
- Dict(22 =&gt; [1.5, 1.5], 23 =&gt; [-1.5, -1.5])
- Dict(25 =&gt; [1.5999999999999994, 1.5999999999999994], 24 =&gt; [-1.5999999999999996, -1.5999999999999996])
- Dict(27 =&gt; [-1.7000000000000013, -1.7000000000000013], 26 =&gt; [1.7000000000000015, 1.7000000000000015])
- Dict(29 =&gt; [1.7999999999999983, 1.7999999999999983], 28 =&gt; [-1.7999999999999985, -1.7999999999999985])
- Dict(31 =&gt; [1.9000000000000015, 1.9000000000000015], 30 =&gt; [-1.9000000000000006, -1.9000000000000006])
- Dict(32 =&gt; [-2.0, -2.0], 33 =&gt; [2.0, 2.0])</code></pre><h2 id="Using-histograms-and-histogram-distances-as-features"><a class="docs-heading-anchor" href="#Using-histograms-and-histogram-distances-as-features">Using histograms and histogram distances as features</a><a id="Using-histograms-and-histogram-distances-as-features-1"></a><a class="docs-heading-anchor-permalink" href="#Using-histograms-and-histogram-distances-as-features" title="Permalink"></a></h2><p>One of the aspects discussed in the original MCBB paper and implementation was the usage of histograms of the means of the variables of a dynamical system as the feature vector. This is useful in very high dimensional systems, such as oscillator networks, where the histogram of the means is significantly different in synchronized or unsychronized states.</p><p>This is possible to do with current interface without any modifications, by using two more packages: ComplexityMeasures.jl to compute histograms, and Distances.jl for the Kullback-Leibler divergence (or any other measure of distance in the space of probability distributions you fancy).</p><p>The only code we need to write to achieve this feature is a custom featurizer and providing an alternative distance to <code>GroupViaClustering</code>. The code would look like this:</p><pre><code class="language-julia hljs">using Distances: KLDivergence
+ Dict(20 =&gt; [-1.200000000000001, -1.200000000000001], 21 =&gt; [1.2000000000000013, 1.2000000000000013])
+ Dict(22 =&gt; [-1.2999999999999987, -1.2999999999999987], 23 =&gt; [1.299999999999999, 1.299999999999999])
+ Dict(25 =&gt; [1.3999999999999992, 1.3999999999999992], 24 =&gt; [-1.4000000000000001, -1.4000000000000001])
+ Dict(27 =&gt; [-1.5, -1.5], 26 =&gt; [1.5, 1.5])
+ Dict(29 =&gt; [1.5999999999999994, 1.5999999999999994], 28 =&gt; [-1.5999999999999996, -1.5999999999999996])
+ Dict(31 =&gt; [-1.7000000000000013, -1.7000000000000013], 30 =&gt; [1.7000000000000015, 1.7000000000000015])
+ Dict(32 =&gt; [-1.7999999999999985, -1.7999999999999985], 33 =&gt; [1.7999999999999983, 1.7999999999999983])
+ Dict(34 =&gt; [-1.9000000000000006, -1.9000000000000006], 35 =&gt; [1.9000000000000015, 1.9000000000000015])
+ Dict(36 =&gt; [-2.0, -2.0], 37 =&gt; [2.0, 2.0])</code></pre><h2 id="Using-histograms-and-histogram-distances-as-features"><a class="docs-heading-anchor" href="#Using-histograms-and-histogram-distances-as-features">Using histograms and histogram distances as features</a><a id="Using-histograms-and-histogram-distances-as-features-1"></a><a class="docs-heading-anchor-permalink" href="#Using-histograms-and-histogram-distances-as-features" title="Permalink"></a></h2><p>One of the aspects discussed in the original MCBB paper and implementation was the usage of histograms of the means of the variables of a dynamical system as the feature vector. This is useful in very high dimensional systems, such as oscillator networks, where the histogram of the means is significantly different in synchronized or unsychronized states.</p><p>This is possible to do with current interface without any modifications, by using two more packages: ComplexityMeasures.jl to compute histograms, and Distances.jl for the Kullback-Leibler divergence (or any other measure of distance in the space of probability distributions you fancy).</p><p>The only code we need to write to achieve this feature is a custom featurizer and providing an alternative distance to <code>GroupViaClustering</code>. The code would look like this:</p><pre><code class="language-julia hljs">using Distances: KLDivergence
 using ComplexityMeasures: ValueHistogram, FixedRectangularBinning, probabilities
 
 # you decide the binning for the histogram, but for a valid estimation of
@@ -547,7 +504,7 @@ end
 
 gconfig = GroupViaClustering(;
     clust_distance_metric = KLDivergence(), # or any other PDF distance
-)</code></pre><p>You can then pass the <code>histogram_featurizer</code> and <code>gconfig</code> to an <a href="../api/#Attractors.AttractorsViaFeaturizing"><code>AttractorsViaFeaturizing</code></a> and use the rest of the library as usual.</p><h2 id="Edge-tracking"><a class="docs-heading-anchor" href="#Edge-tracking">Edge tracking</a><a id="Edge-tracking-1"></a><a class="docs-heading-anchor-permalink" href="#Edge-tracking" title="Permalink"></a></h2><p>To showcase how to run the <a href="../api/#Attractors.edgetracking"><code>edgetracking</code></a> algorithm, let us use it to find the saddle point of the bistable FitzHugh-Nagumo (FHN) model, a two-dimensional ODE system originally conceived to represent a spiking neuron. We define the system in the following form:</p><pre><code class="language-julia hljs">using OrdinaryDiffEqVerner: Vern9
+)</code></pre><p>You can then pass the <code>histogram_featurizer</code> and <code>gconfig</code> to an <a href="../api/#Attractors.BasinMapFeaturizeGroup"><code>BasinMapFeaturizeGroup</code></a> and use the rest of the library as usual.</p><h2 id="Edge-tracking"><a class="docs-heading-anchor" href="#Edge-tracking">Edge tracking</a><a id="Edge-tracking-1"></a><a class="docs-heading-anchor-permalink" href="#Edge-tracking" title="Permalink"></a></h2><p>To showcase how to run the <a href="../api/#Attractors.edgetracking"><code>edgetracking</code></a> algorithm, let us use it to find the saddle point of the bistable FitzHugh-Nagumo (FHN) model, a two-dimensional ODE system originally conceived to represent a spiking neuron. We define the system in the following form:</p><pre><code class="language-julia hljs">using OrdinaryDiffEqVerner: Vern9
 
 function fitzhugh_nagumo(u,p,t)
     x, y = u
@@ -570,7 +527,7 @@ ds = CoupledODEs(fitzhugh_nagumo, ones(2), params, diffeq=(;alg = Vern9(), relto
  state:         [1.0, 1.0]
 </code></pre><p>Now we compute the fixed points and basins of attraction of the FHN model.</p><pre><code class="language-julia hljs">xg = yg = range(-1.5, 1.5; length = 201)
 grid = (xg, yg)
-mapper = AttractorsViaRecurrences(ds, grid; sparse=false)
+mapper = BasinMapRecurrences(ds, grid; sparse=false)
 basins, attractors = basins_of_attraction(mapper)
 attractors</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, StateSpaceSet{2, Float64, SVector{2, Float64}}} with 3 entries:
   2 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points
@@ -612,7 +569,7 @@ ds = CoupledODEs(duffing, ones(2), params, diffeq=(; reltol=1e-11))
 n_grid = 201
 grid = (range(-2, 2; length = n_grid),range(-2, 2; length = n_grid),)
 
-mapper = AttractorsViaRecurrences(ds, grid; sparse = false, consecutive_recurrences = 1000)
+mapper = BasinMapRecurrences(ds, grid; sparse = false, consecutive_recurrences = 1000)
 
 accumulator = StabilityMeasuresAccumulator(mapper;
     finite_time = 50.0, weighting_distribution = MvNormal(zeros(2), 1.0*I)
@@ -622,7 +579,24 @@ accumulator = StabilityMeasuresAccumulator(mapper;
 for u0 in ics
     id = accumulator(u0)
 end
-stability_measures, attractors = finalize_accumulator(accumulator)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">(Dict{String, Any}("characteristic_return_time" =&gt; Dict(2 =&gt; 10.0, 3 =&gt; Inf, 1 =&gt; 10.0), "maximal_noncritical_shock_magnitude" =&gt; Dict(2 =&gt; 3.60555015835619, 3 =&gt; 2.2004544985070695, 1 =&gt; 3.605548381400913), "maximal_amplification_time" =&gt; Dict(2 =&gt; 0.9649662815839206, 3 =&gt; Inf, 1 =&gt; 0.9649677626217309), "mean_convergence_time" =&gt; Dict(2 =&gt; 12.185012891194612, 3 =&gt; 0.0009443497222957353, 1 =&gt; 12.189505114157145), "finite_time_basin_stability" =&gt; Dict(2 =&gt; 0.4997455418586613, 3 =&gt; 0.0003424395135836726, 1 =&gt; 0.499912018627755), "mean_noncritical_shock_magnitude" =&gt; Dict(2 =&gt; 0.6217472556615868, 3 =&gt; 0.0002895424330199067, 1 =&gt; 0.6218557162445423), "median_convergence_pace" =&gt; Dict(2 =&gt; 22.919798833365864, 3 =&gt; 3.2180936588551687, 1 =&gt; 22.93690399486248), "reactivity" =&gt; Dict(2 =&gt; 0.40990577944243073, 3 =&gt; Inf, 1 =&gt; 0.40989924687331897), "median_convergence_time" =&gt; Dict(2 =&gt; 24.878878486396474, 3 =&gt; 2.4124973077717793, 1 =&gt; 24.878878486396474), "basin_stability" =&gt; Dict(2 =&gt; 0.4997455418586613, 3 =&gt; 0.0003424395135836726, 1 =&gt; 0.499912018627755)…), Dict{Int64, StateSpaceSet{2, Float64, SVector{2, Float64}}}(2 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points, 3 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points, 1 =&gt; 2-dimensional StateSpaceSet{Float64} with 1 points))</code></pre><h2 id="user_defined_quantifiers"><a class="docs-heading-anchor" href="#user_defined_quantifiers">Enhancing the accumulator with arbitrary user-defined quantifiers</a><a id="user_defined_quantifiers-1"></a><a class="docs-heading-anchor-permalink" href="#user_defined_quantifiers" title="Permalink"></a></h2><p>Following from the example above, lets' say that we want to enhance the accumulator with another quantity which is not estimated by default. In this example this will simply be the maximum velocity (2nd variable) each basin has. Following the documentation of <a href="../api/#Attractors.StabilityMeasuresAccumulator"><code>StabilityMeasuresAccumulator</code></a>, we only need to define a function that inputs a <a href="../api/#Attractors.SampledBasinsOfAttraction"><code>SampledBasinsOfAttraction</code></a> and returns a dictionary mapping attractor IDs to their additional quantifier. We can do this like so:</p><pre><code class="language-julia hljs">function extra_function(sboa::SampledBasinsOfAttraction, ds::DynamicalSystem)
+stability_measures = finalize_accumulator(accumulator)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{String, Any} with 17 entries:
+  "characteristic_return_time"          =&gt; Dict(2=&gt;10.0, 3=&gt;Inf, 1=&gt;10.0)
+  "maximal_noncritical_shock_magnitude" =&gt; Dict(2=&gt;3.60555, 3=&gt;2.20045, 1=&gt;3.60…
+  "maximal_amplification_time"          =&gt; Dict(2=&gt;0.964966, 3=&gt;Inf, 1=&gt;0.96496…
+  "mean_convergence_time"               =&gt; Dict(2=&gt;12.2823, 3=&gt;0.000954066, 1=&gt;…
+  "finite_time_basin_stability"         =&gt; Dict(2=&gt;0.499746, 3=&gt;0.00034244, 1=&gt;…
+  "mean_noncritical_shock_magnitude"    =&gt; Dict(2=&gt;0.621747, 3=&gt;0.000289542, 1=…
+  "median_convergence_pace"             =&gt; Dict(2=&gt;23.0661, 3=&gt;3.2512, 1=&gt;23.08…
+  "reactivity"                          =&gt; Dict(2=&gt;0.409906, 3=&gt;Inf, 1=&gt;0.40989…
+  "median_convergence_time"             =&gt; Dict(2=&gt;24.9825, 3=&gt;2.43732, 1=&gt;24.9…
+  "basin_stability"                     =&gt; Dict(2=&gt;0.499746, 3=&gt;0.00034244, 1=&gt;…
+  "maximal_convergence_pace"            =&gt; Dict(2=&gt;36496.6, 3=&gt;26.9288, 1=&gt;3859…
+  "maximal_convergence_time"            =&gt; Dict(2=&gt;32.9038, 3=&gt;7.46429, 1=&gt;32.9…
+  "mean_convergence_pace"               =&gt; Dict(2=&gt;15.8985, 3=&gt;0.00250903, 1=&gt;1…
+  "maximal_amplification"               =&gt; Dict(2=&gt;1.28413, 3=&gt;Inf, 1=&gt;1.28412)
+  "basin_fraction"                      =&gt; Dict(2=&gt;0.49979, 3=&gt;0.000297022, 1=&gt;…
+  "intermingledness1"                   =&gt; Dict(2=&gt;1.01873, 3=&gt;0.612804, 1=&gt;0.9…
+  "minimal_critical_shock_magnitude"    =&gt; Dict(2=&gt;0.519999, 3=&gt;0.02, 1=&gt;0.5200…</code></pre><h2 id="user_defined_quantifiers"><a class="docs-heading-anchor" href="#user_defined_quantifiers">Enhancing the accumulator with arbitrary user-defined quantifiers</a><a id="user_defined_quantifiers-1"></a><a class="docs-heading-anchor-permalink" href="#user_defined_quantifiers" title="Permalink"></a></h2><p>Following from the example above, lets' say that we want to enhance the accumulator with another quantity which is not estimated by default. In this example this will simply be the maximum velocity (2nd variable) each basin has. Following the documentation of <a href="../api/#Attractors.StabilityMeasuresAccumulator"><code>StabilityMeasuresAccumulator</code></a>, we only need to define a function that inputs a <a href="../api/#Attractors.SampledBasinsOfAttraction"><code>SampledBasinsOfAttraction</code></a> and returns a dictionary mapping attractor IDs to their additional quantifier. We can do this like so:</p><pre><code class="language-julia hljs">function extra_function(sboa::SampledBasinsOfAttraction, ds::DynamicalSystem)
     ids = extract_basins(sboa)
     u0s = extract_domain(sboa)
     att = extract_attractors(sboa) # we don't need the attractors for this example
@@ -642,94 +616,11 @@ extras = Dict("maxv" =&gt; extra_function)</code></pre><pre class="documenter-ex
 for u0 in ics
     id = accumulator(u0)
 end
-stability_measures, attractors = finalize_accumulator(accumulator)
+stability_measures = finalize_accumulator(accumulator)
 stability_measures["maxv"]</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, Float64} with 3 entries:
   2 =&gt; 2.0
   3 =&gt; 1.98
-  1 =&gt; 2.0</code></pre><p>Unsurprisingly, the maximum value of the <code>y</code> coordinate is ≈2 for all basins, but this we new already due to the symmetries of the system's basins!</p><p>Notice that this new extra quantity would also be tracked along a continuation if the accumulator is given to a continuation like in the main tutorial's example.</p><h2 id="aggregated_stability"><a class="docs-heading-anchor" href="#aggregated_stability">Aggregating attractors before computing stability measures</a><a id="aggregated_stability-1"></a><a class="docs-heading-anchor-permalink" href="#aggregated_stability" title="Permalink"></a></h2><p>Sometimes a system has multiple attractors that are dynamically distinct but correspond to the same <em>functional state</em> — e.g. two coexisting surviving-population states in an ecological model. In such cases it is meaningful to <em>aggregate</em> them into a single effective attractor before computing stability measures, so that the resulting measures describe the resilience of the functioning state as a whole.</p><p>We illustrate this with a two-habitat population model with an Allee effect (<a href="https://doi.org/10.1063/5.0042755">Schoenmakers &amp; Feudel, Chaos 2021</a>):</p><p class="math-container">\[\dot{X}_1 = r_1 X_1 \left(1 - \frac{X_1}{K_1}\right)(X_1 - a_1) + d(X_2 - X_1)\]</p><p class="math-container">\[\dot{X}_2 = r_2 X_2 \left(1 - \frac{X_2}{K_2}\right)(X_2 - a_2) + d(X_1 - X_2)\]</p><p>where <span>$X_1, X_2$</span> are normalised population densities, <span>$K_i$</span> carrying capacities, <span>$a_i$</span> Allee thresholds, <span>$r_i$</span> growth rates, and <span>$d$</span> the migration rate. At <span>$K_1 = 0.90$</span> the system has three coexisting attractors: a low-biomass surviving state, a high-biomass surviving state, and an extinction state.</p><pre><code class="language-julia hljs">using OrdinaryDiffEqVerner: Vern9
-
-function population_rule(X, p, t)
-    X1, X2 = X
-    K1, r1, a1, r2, a2, K2, d = p
-    dX1 = r1*X1*(1 - X1/K1)*(X1 - a1) + d*(X2 - X1)
-    dX2 = r2*X2*(1 - X2/K2)*(X2 - a2) + d*(X1 - X2)
-    return SVector(dX1, dX2)
-end
-
-params = [0.90, 0.8, 0.3, 0.8, 0.8, 0.42, 0.1]
-ds = CoupledODEs(population_rule, [0.7, 0.7], params;
-    diffeq = (alg = Vern9(), abstol = 1e-9, reltol = 1e-9))
-
-xg = range(-0.001, 1.0; length = 51)
-yg = range(-0.001, 1.0; length = 51)
-grid = (xg, yg)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">(-0.001:0.02002:1.0, -0.001:0.02002:1.0)</code></pre><p>We first find the attractors using <code>AttractorsViaRecurrences</code>, then build an <code>AttractorsViaProximity</code> mapper and feed it to a <code>StabilityMeasuresAccumulator</code>:</p><pre><code class="language-julia hljs">mapper_rec = AttractorsViaRecurrences(ds, grid;
-    consecutive_recurrences = 1000, consecutive_attractor_steps = 10,
-    consecutive_lost_steps = 10_000, attractor_locate_steps = 1000,
-)
-ics = ics_from_grid(grid)
-for u0 in ics; mapper_rec(u0); end
-attractors = extract_attractors(mapper_rec)
-
-mapper_prox = AttractorsViaProximity(ds, attractors, 0.05; Ttr = 0, Δt = 0.1,
-    stop_at_Δt = true, consecutive_lost_steps = 10_000)
-accumulator = StabilityMeasuresAccumulator(mapper_prox; finite_time = 100.0, distance = StrictlyMinimumDistance())
-for u0 in ics; accumulator(u0); end</code></pre><p>We compute the basins of attraction on the same grid. We first define a helper that identifies the extinction attractor (total biomass ≈ 0), then visualize with the original per-attractor coloring:</p><pre><code class="language-julia hljs">function is_extinction(A; threshold = 0.02)
-    isempty(A) &amp;&amp; return false
-    return sum(A[1]) &lt; threshold
-end
-
-basins, attractors = basins_of_attraction(mapper_rec, grid; show_progress = false)
-
-labels_plain = Dict(k =&gt; (is_extinction(v) ? "Extinction" : "Surviving ($k)") for (k,v) in attractors)
-fig_plain = heatmap_basins_attractors(grid, basins, attractors; labels = labels_plain,
-    add_legend = false)
-ax_plain = fig_plain.content[1]
-ax_plain.title = "Original attractors"
-ax_plain.xlabel = L"X_1"
-ax_plain.ylabel = L"X_2"
-axislegend(ax_plain; position = :lt)
-fig_plain</code></pre><img alt="Example block output" src="a08e4c54.png"/><p>Now we aggregate: we define a <em>featurizer</em> that maps each attractor to a scalar indicating whether it is an extinction state. A <code>GroupViaPairwiseComparison</code> with a generous threshold merges all non-extinction attractors into a single "functioning" group:</p><pre><code class="language-julia hljs">pop_featurizer = A -&gt; SVector(Float64(is_extinction(A)))
-agg_config = GroupViaPairwiseComparison(; threshold = 0.5, rescale_features = false)
-
-measures_agg, attractors_agg = finalize_accumulator(accumulator;
-    featurizer = pop_featurizer, group_config = agg_config)
-measures_agg["basin_stability"]</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, Float64} with 2 entries:
-  2 =&gt; 0.249519
-  1 =&gt; 0.750481</code></pre><p>To visualize the aggregated basins we remap basin IDs directly using <code>is_extinction</code>, assigning all surviving attractors a common new ID and merging their attractor sets:</p><pre><code class="language-julia hljs"># Use fixed new IDs for the two functional groups
-const FUNCTIONING_ID = 1
-const EXTINCTION_ID  = 2
-
-# Build aggregated attractor dict
-attractors_agg_plot = Dict{Int, valtype(attractors)}()
-for (k, v) in attractors
-    new_id = is_extinction(v) ? EXTINCTION_ID : FUNCTIONING_ID
-    if haskey(attractors_agg_plot, new_id)
-        attractors_agg_plot[new_id] = StateSpaceSet(
-            vcat(collect(attractors_agg_plot[new_id]), collect(v)))
-    else
-        attractors_agg_plot[new_id] = v
-    end
-end
-
-# Remap each basin grid point
-basins_agg = map(basins) do b
-    b == -1 &amp;&amp; return -1
-    is_extinction(attractors[b]) ? EXTINCTION_ID : FUNCTIONING_ID
-end
-
-labels_agg = Dict(FUNCTIONING_ID =&gt; "Functioning (aggregated)", EXTINCTION_ID =&gt; "Extinction")
-colors_agg = Dict(FUNCTIONING_ID =&gt; "#E07143", EXTINCTION_ID =&gt; :gray20)
-
-fig_agg = heatmap_basins_attractors(grid, basins_agg, attractors_agg_plot;
-    labels = labels_agg, colors = colors_agg, add_legend = false)
-ax_agg = fig_agg.content[1]
-ax_agg.title = "Aggregated attractors"
-ax_agg.xlabel = L"X_1"
-ax_agg.ylabel = L"X_2"
-axislegend(ax_agg; position = :lt)
-fig_agg</code></pre><img alt="Example block output" src="70a34c48.png"/><p>Comparing the two figures: the two surviving states (violet and teal in the left plot) collapse into a single orange "functioning" basin in the right plot, making it immediately clear how much of the state space supports any form of population survival.</p><p>The aggregated basin stability of the functioning mode is the sum of the individual surviving-attractor basin stabilities, while the extinction state retains its own entry. The aggregated <code>minimal_critical_shock_magnitude</code> now reflects the minimum distance from any non-functioning initial condition to the nearest point of the merged attractor, giving a single scalar measure of resilience for "the system continues to support a population":</p><pre><code class="language-julia hljs">measures_agg["minimal_critical_shock_magnitude"]</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Int64, Float64} with 2 entries:
-  2 =&gt; 0.535852
-  1 =&gt; 0.0961043</code></pre><h2 id="Invariant-saddle-of-a-dynamical-system"><a class="docs-heading-anchor" href="#Invariant-saddle-of-a-dynamical-system">Invariant saddle of a dynamical system</a><a id="Invariant-saddle-of-a-dynamical-system-1"></a><a class="docs-heading-anchor-permalink" href="#Invariant-saddle-of-a-dynamical-system" title="Permalink"></a></h2><p>The stagger-and-step method approximates the invariant non-attracting set governing the chaotic transient dynamics of a system, namely the stable manifold of a chaotic saddle.</p><p>Given the dynamical system <code>ds</code> and a initial guess <code>x0</code> in a region <em>with no attractors</em>, the algorithm provides <code>N</code> points close to the  stable manifold that escape from the region after at least <code>Tm</code> steps of <code>ds</code>.</p><p>We first set the dynamical system, in our case we set up two coupled Hénon map that are known to have a chaotic saddle that generates chaotic transients before the trajectories escape:</p><pre><code class="language-julia hljs">function F!(du, u ,p, n)
+  1 =&gt; 2.0</code></pre><p>Unsurprisingly, the maximum value of the <code>y</code> coordinate is ≈2 for all basins, but this we new already due to the symmetries of the system's basins!</p><p>Notice that this new extra quantity would also be tracked along a continuation if the accumulator is given to a continuation like in the main tutorial's example.</p><h2 id="Invariant-saddle-of-a-dynamical-system"><a class="docs-heading-anchor" href="#Invariant-saddle-of-a-dynamical-system">Invariant saddle of a dynamical system</a><a id="Invariant-saddle-of-a-dynamical-system-1"></a><a class="docs-heading-anchor-permalink" href="#Invariant-saddle-of-a-dynamical-system" title="Permalink"></a></h2><p>The stagger-and-step method approximates the invariant non-attracting set governing the chaotic transient dynamics of a system, namely the stable manifold of a chaotic saddle.</p><p>Given the dynamical system <code>ds</code> and a initial guess <code>x0</code> in a region <em>with no attractors</em>, the algorithm provides <code>N</code> points close to the  stable manifold that escape from the region after at least <code>Tm</code> steps of <code>ds</code>.</p><p>We first set the dynamical system, in our case we set up two coupled Hénon map that are known to have a chaotic saddle that generates chaotic transients before the trajectories escape:</p><pre><code class="language-julia hljs">function F!(du, u ,p, n)
     x,y,u,v = u
     A = 3; B = 0.3; C = 5.; D = 0.3; k = 0.4;
     du[1] = A - x^2 + B*y + k*(x-u)
@@ -748,31 +639,31 @@ ds = DeterministicIteratedMap(F!, zeros(4))</code></pre><pre class="documenter-e
  state:         [0.0, 0.0, 0.0, 0.0]
 </code></pre><p>Next we define a region in the phase space that should not contain attractors. Using this region we also define a <code>sampler</code> and a membership function <code>isinside</code>:</p><pre><code class="language-julia hljs">R_min = [-4; -4.; -4.; -4.]
 R_max = [4.; 4.; 4.; 4.]
-sampler, isinside = statespace_sampler(HRectangle(R_min,R_max))</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">(StateSpaceSets.RectangleGenerator{Float64, Vector{Float64}, Random.Xoshiro}([-4.0, -4.0, -4.0, -4.0], [8.0, 8.0, 8.0, 8.0], [[0.0, 0.0, 0.0, 0.0]], Random.Xoshiro(0x0173b3f3e079a0f4, 0xae31824fddd14792, 0x758e48f607892460, 0xb5adc9e780eb6cd0, 0x4f902d06260b273a)), StateSpaceSets.var"#isinside#65"{Vector{Float64}, Vector{Float64}}([4.0, 4.0, 4.0, 4.0], [-4.0, -4.0, -4.0, -4.0]))</code></pre><p>And we are ready! We can now call the function <code>stagger_and_step</code> with an initial condition <code>x0</code>:</p><pre><code class="language-julia hljs">x0 = sampler()
+sampler, isinside = statespace_sampler(HRectangle(R_min,R_max))</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">(StateSpaceSets.RectangleGenerator{Float64, Vector{Float64}, Random.Xoshiro}([-4.0, -4.0, -4.0, -4.0], [8.0, 8.0, 8.0, 8.0], [[0.0, 0.0, 0.0, 0.0]], Random.Xoshiro(0xd2d4c4a221779879, 0xd0d2ba5e4f9069d9, 0x928fc7d30aefbe82, 0x250bda5bbfe12660, 0x256ed35e85ff9b2e)), StateSpaceSets.var"#isinside#65"{Vector{Float64}, Vector{Float64}}([4.0, 4.0, 4.0, 4.0], [-4.0, -4.0, -4.0, -4.0]))</code></pre><p>And we are ready! We can now call the function <code>stagger_and_step</code> with an initial condition <code>x0</code>:</p><pre><code class="language-julia hljs">x0 = sampler()
 v = stagger_and_step(ds, x0, 10000, isinside; stagger_mode = :adaptive, δ = 1e-4, Tm = 10, max_steps = Int(1e5), δ₀ = 2.)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">4-dimensional StateSpaceSet{Float64} with 10000 points
-  1.0001     0.877186   2.89675    1.10584
-  1.5043     1.00009   -2.30072    2.89675
-  2.55859    1.50452   -0.948279  -2.3011
- -1.69226    2.55859    2.00768   -0.948284
- -0.576291  -1.6923     2.16435    2.00778
-  1.06386   -0.576344   2.0142     2.16435
-  1.3152     1.06384    1.97239    2.01421
-  1.32653    1.3152     1.97683    1.97239
-  1.37476    1.32653    1.944      1.97683
-  1.28029    1.37476    2.04162    1.944
-  ⋮                               
- -0.974336  -1.74478    2.17609    2.19684
-  0.265813  -0.974948   2.18405    2.17608
-  1.86954    0.265787   1.64968    2.18414
- -0.345108   1.87513    2.84754    1.6478
-  2.16632   -0.344872  -1.33902    2.8479
- -0.394074   2.16627    2.65934   -1.339
-  2.27949   -0.389988  -1.25578    2.65998
- -0.897464   2.27912    2.80807   -1.25548
-  1.39608   -0.897464  -1.7797     2.80807</code></pre><p>The <code>stagger_mode</code> keyword select the type of search in the phase space to stick close to the saddle at each step. The mode <code>:adaptive</code> adapts the radius of the stochastic search as a function of the success of the search process.</p><p>Finally we can represent a projection of the chaotic saddle found in this example:</p><pre><code class="language-julia hljs">fig = Figure()
+  1.65624    -0.866503   -2.38855   3.14592
+  1.6149      1.65621    -1.37926  -2.38854
+  2.08674     1.61492     1.18258  -1.37952
+ -0.508358    2.08674     2.82597   1.18258
+  2.03388    -0.508356   -1.29752   2.82595
+  0.0437271   2.03382     2.83105  -1.29772
+  2.49333     0.0438177  -2.28938   2.83106
+ -1.29004     2.49322    -1.3046   -2.28932
+  2.08948    -1.29009     2.6053   -1.30464
+ -1.95926     2.08947    -1.97267   2.6053
+  ⋮                                
+  2.25644     1.5482      1.4027   -1.76593
+ -1.28514     2.25624     2.16096   1.4029
+  0.646809   -1.28516     2.1301    2.16083
+  1.60309     0.646539    1.70445   2.13005
+  0.584378    1.60268     2.77467   1.70451
+  2.26319     0.584378   -1.31133   2.77467
+ -0.5169      2.26319     2.683    -1.31133
+  2.13181    -0.5169     -1.31192   2.683
+ -0.337143    2.13551     2.70785  -1.3109</code></pre><p>The <code>stagger_mode</code> keyword select the type of search in the phase space to stick close to the saddle at each step. The mode <code>:adaptive</code> adapts the radius of the stochastic search as a function of the success of the search process.</p><p>Finally we can represent a projection of the chaotic saddle found in this example:</p><pre><code class="language-julia hljs">fig = Figure()
 ax = Axis(fig[1,1], xlabel="x", ylabel="y")
 scatter!(ax, v[:,1], v[:,3]; markersize = 3)
-fig</code></pre><img alt="Example block output" src="f180b49c.png"/><h2 id="Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space"><a class="docs-heading-anchor" href="#Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space">Matching limit cycles and fixed points in a system with named heterogeneous state space</a><a id="Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space-1"></a><a class="docs-heading-anchor-permalink" href="#Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space" title="Permalink"></a></h2><p>This example discusses the situation of a dynamical system that during a global continuation it transitions from a fixed point <code>A</code> to a limit cycle <code>B</code> and then to another fixed point <code>C</code> that is far away (in statespace) from <code>A</code> but very close to <code>B</code>. In the context of this scenario, we do NOT want to match the fixed points with the limit cycle during the continuation. Furthermore, this particular dynamical system has a heterogeneous state space: the different dynamic variables have wildly different units, and there is no sensible transformation that would bring all variables to the same units. Lastly, this example is based on a dynamical system that was generated with ModelingToolkit.jl, and hence its dynamic variables and parameters are all named.</p><p>The system we will utilize in this example is a five-dimensional model for cloud transitions developed in (<a href="../references/#Datseris2026Clouds">Datseris, 2026</a>). Its variables are named <code>s_b, q_b, z_b, C, SST</code>. We will showcase how one can match attractors in this system simply by defining a special distance function that is given to <a href="../api/#Attractors.MatchBySSSetDistance"><code>MatchBySSSetDistance</code></a>. This is:</p><pre><code class="language-julia hljs">function centroid_and_length(A, B)
+fig</code></pre><img alt="Example block output" src="96b31c3f.png"/><h2 id="Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space"><a class="docs-heading-anchor" href="#Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space">Matching limit cycles and fixed points in a system with named heterogeneous state space</a><a id="Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space-1"></a><a class="docs-heading-anchor-permalink" href="#Matching-limit-cycles-and-fixed-points-in-a-system-with-named-heterogeneous-state-space" title="Permalink"></a></h2><p>This example discusses the situation of a dynamical system that during a global continuation it transitions from a fixed point <code>A</code> to a limit cycle <code>B</code> and then to another fixed point <code>C</code> that is far away (in statespace) from <code>A</code> but very close to <code>B</code>. In the context of this scenario, we do NOT want to match the fixed points with the limit cycle during the continuation. Furthermore, this particular dynamical system has a heterogeneous state space: the different dynamic variables have wildly different units, and there is no sensible transformation that would bring all variables to the same units. Lastly, this example is based on a dynamical system that was generated with ModelingToolkit.jl, and hence its dynamic variables and parameters are all named.</p><p>The system we will utilize in this example is a five-dimensional model for cloud transitions developed in (<a href="../references/#Datseris2026Clouds">Datseris, 2026</a>). Its variables are named <code>s_b, q_b, z_b, C, SST</code>. We will showcase how one can match attractors in this system simply by defining a special distance function that is given to <a href="../api/#Attractors.MatchBySSSetDistance"><code>MatchBySSSetDistance</code></a>. This is:</p><pre><code class="language-julia hljs">function centroid_and_length(A, B)
     if length(A) != length(B) &amp;&amp; any(isequal(1), length.((A, B)))
         return Inf
     end
@@ -780,7 +671,83 @@ fig</code></pre><img alt="Example block output" src="f180b49c.png"/><h2 id="Matc
     d = maximum(i -&gt; abs((mean(A[:, i]) - mean(B[:, i]))/weights[i]), keys(weights))
     return d
 end
-matcher = MatchBySSSetDistance(; distance = centroid_and_length, threshold = 0.2)</code></pre><p>We then provide this <code>matcher</code> to <a href="../api/#Attractors.AttractorSeedContinueMatch"><code>AttractorSeedContinueMatch</code></a> and perform a global continuation as illustrated in the main <a href="../tutorial/#tutorial">Tutorial</a>. This special <code>matcher</code> achieves the following:</p><ul><li>Does not match limit cycles with fixed points no matter what.</li><li>Matches attractors according to their <em>weighted centroid difference</em>. Each dimension of the dynamical system has a typical scale that is characteristic for each dimension. Then the distance between centroids is normalized by this typical size.</li><li>The maximum of these normalized distances is obtained.</li><li>The <code>threshold = 0.2</code> in essence means that if two attractors have a weighted centroid difference of less than 20% of the typical size for each dimension, the attractors are matched!</li></ul><h2 id="Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty"><a class="docs-heading-anchor" href="#Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty">Performing multiple global continuations to incorporate prescribed parameter changes and parameter uncertainty</a><a id="Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty-1"></a><a class="docs-heading-anchor-permalink" href="#Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty" title="Permalink"></a></h2><p>In this example we continue with the same model used in the previous example, the cloud model of (<a href="../references/#Datseris2026Clouds">Datseris, 2026</a>). In that model there are some key parameters that must be studied, all of which affect transitions between different cloud states. They are named as <code>D, U, δ_Δ₊T, RH₊, δ_FTR</code>. Crucially, each of these parameters have some uncertainty. In the context of the model this uncertainty reflects environmental variability. In addition, some of these parameters change with a prescribed trend in time, reflecting climate change.</p><p>We want to perform global continuation that incorporates both the prescribed trends, and uncertainty. We will do this by performing multiple continuations that start with randomly sampled parameters, and then continue along a curve in parameter space reflecting the chosen trends. We first make the following helper function that will be generating parameter curves (and remember, all parameters are named due to using ModelingToolkit.jl):</p><pre><code class="language-julia hljs">using Distributions: Uniform, Normal
+matcher = MatchBySSSetDistance(; distance = centroid_and_length, threshold = 0.2)</code></pre><p>We then provide this <code>matcher</code> to <a href="../api/#Attractors.AttractorSeedContinueMatch"><code>AttractorSeedContinueMatch</code></a> and perform a global continuation as illustrated in the main <a href="../tutorial/#tutorial">Tutorial</a>. This special <code>matcher</code> achieves the following:</p><ul><li>Does not match limit cycles with fixed points no matter what.</li><li>Matches attractors according to their <em>weighted centroid difference</em>. Each dimension of the dynamical system has a typical scale that is characteristic for each dimension. Then the distance between centroids is normalized by this typical size.</li><li>The maximum of these normalized distances is obtained.</li><li>The <code>threshold = 0.2</code> in essence means that if two attractors have a weighted centroid difference of less than 20% of the typical size for each dimension, the attractors are matched!</li></ul><h2 id="aggregate_continuation_example"><a class="docs-heading-anchor" href="#aggregate_continuation_example">Aggregated stability measures of a population model</a><a id="aggregate_continuation_example-1"></a><a class="docs-heading-anchor-permalink" href="#aggregate_continuation_example" title="Permalink"></a></h2><p>This example discusses aggregation of continuation results: where a dynamical system may have multiple attractors, but some of them share the same functional/operating state for the context of the system. In such cases, you want to aggregate attractors with similar function. The recommended recipe to do this is: run a normal <a href="../api/#Attractors.global_continuation"><code>global_continuation</code></a> to find attractors, merge the attractors into user defined groups with <a href="../api/#Attractors.aggregate_continuation"><code>aggregate_continuation</code></a>, and feed the merged attractors to <a href="../api/#Attractors.stability_measures_along_continuation"><code>stability_measures_along_continuation</code></a> for the computation of stability measures.</p><p>We use the two-habitat population model with Allee effect, also featured in Schoenmakers and Feudel (<a href="../references/#Schoenmakers2021">Schoenmakers and Feudel, 2021</a>). The state <code>X = (X₁, X₂)</code> are the (normalised) population densities of two coupled habitats, and we vary the carrying capacity <code>K₁</code> of habitat 1 (its quality declines as <code>K₁</code> decreases). For low enough <code>K₁</code> the only surviving state is total extinction <code>X = (0, 0)</code>.</p><pre><code class="language-julia hljs">using Attractors
+using OrdinaryDiffEqVerner: Vern9
+using CairoMakie
+
+function population_rule(X, p, t)
+    X1, X2 = X
+    K1, r1, a1, r2, a2, K2, d = p
+    dX1 = r1 * X1 * (1 - X1/K1) * (X1 - a1) + d * (X2 - X1)
+    dX2 = r2 * X2 * (1 - X2/K2) * (X2 - a2) + d * (X1 - X2)
+    return SVector(dX1, dX2)
+end
+
+p0 = [0.9, 0.8, 0.3, 0.8, 0.8, 0.42, 0.1] # K₁, r₁, a₁, r₂, a₂, K₂, d
+ds = CoupledODEs(population_rule, [0.7, 0.7], p0;
+    diffeq = (alg = Vern9(), abstol = 1e-9, reltol = 1e-9))
+
+xg = yg = range(-0.001, 1.0; length = 101)
+grid = (xg, yg)
+mapper = BasinMapRecurrences(ds, grid;
+    Δt = 0.1, consecutive_recurrences = 1000, consecutive_lost_steps = 1000)
+
+# A short continuation in K₁ with few samples, to keep the example fast
+prange = range(0.91, 0.89; length = 5)
+pcurve = [Dict(1 =&gt; v) for v in prange]
+sampler, = statespace_sampler(grid, 1234)
+alg = RecurrencesFindAndMatch(mapper; distance = StrictlyMinimumDistance())
+fractions_cont, attractors_cont = global_continuation(
+    alg, pcurve, sampler; samples_per_parameter = 100, show_progress = false
+)
+
+length.(values.(attractors_cont)) # number of attractors at each step</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">5-element Vector{Int64}:
+ 2
+ 2
+ 3
+ 3
+ 2</code></pre><p>Now we aggregate. We do this, because we do not care which particular non-extinction state the system settles into — only whether the species survives at all. So we featurize each attractor by whether it is the extinction state using the following featurizer:</p><pre><code class="language-julia hljs">using Statistics: mean
+function biomass_featurizer(A)
+    extinct = all(&lt;(0.02), mean(A))
+    return SVector(Float64(extinct))
+end</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">biomass_featurizer (generic function with 1 method)</code></pre><p>We can group the attractors that share similar features with pretty much any <a href="@ref"><code>GroupingConfing</code></a>, here we use</p><pre><code class="language-julia hljs">agg_config = GroupViaPairwiseComparison(; threshold = 0.5, rescale_features = false)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">GroupViaPairwiseComparison{Float64, Euclidean}(0.5, Euclidean(0.0), false)</code></pre><p>and proceed with the aggregation</p><pre><code class="language-julia hljs">agg_attractors_cont, centroids_cont, members_cont = aggregate_continuation(
+    attractors_cont, biomass_featurizer, agg_config
+)
+
+members_cont</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">5-element Vector{Dict{Int64, Vector{Int64}}}:
+ Dict(2 =&gt; [1], 1 =&gt; [2])
+ Dict(2 =&gt; [1], 1 =&gt; [2])
+ Dict(2 =&gt; [3, 1], 1 =&gt; [2])
+ Dict(2 =&gt; [3, 1], 1 =&gt; [2])
+ Dict(2 =&gt; [1], 1 =&gt; [2])</code></pre><p>We then pass the merged attractors to <a href="../api/#Attractors.stability_measures_along_continuation"><code>stability_measures_along_continuation</code></a>. Each group is treated as a single attractor, so its basin fraction is the total fraction of state space leading to it.</p><pre><code class="language-julia hljs">measures_cont = stability_measures_along_continuation(
+    ds, agg_attractors_cont, pcurve, sampler;
+    ε = 0.05, finite_time = 100.0, show_progress = false
+)
+
+# The extinction group is the one whose feature centroid is 1
+extinct_id = only(id for (id, c) in centroids_cont[end] if c[1] &gt; 0.5)
+alive_id   = only(id for (id, c) in centroids_cont[end] if c[1] &lt; 0.5)
+fig = plot_basins_curves(measures_cont["basin_fraction"], prange;
+    colors = Dict(extinct_id =&gt; "black", alive_id =&gt; "green"),
+    labels = Dict(extinct_id =&gt; "extinct", alive_id =&gt; "functioning"),
+)
+
+# `measures_cont` holds every other stability measure too
+ax = Axis(fig[0,1]; ylabel = "mct")
+plot_continuation_curves!(ax, measures_cont["mean_convergence_time"], prange;
+    colors = Dict(extinct_id =&gt; "black", alive_id =&gt; "green"),
+    labels = Dict(extinct_id =&gt; "extinct", alive_id =&gt; "functioning"),
+)
+
+# and for clarity we plot the number of aggregated attractors
+ax = Axis(fig[-1,1]; ylabel = "# aggregates")
+lengths_cont = [Dict(k =&gt; length(vals) for (k, vals) in d) for d in members_cont]
+plot_continuation_curves!(ax, lengths_cont, prange;
+    colors = Dict(extinct_id =&gt; "black", alive_id =&gt; "green"),
+    labels = Dict(extinct_id =&gt; "extinct", alive_id =&gt; "functioning"),
+)
+
+fig</code></pre><img alt="Example block output" src="a07404aa.png"/><h2 id="Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty"><a class="docs-heading-anchor" href="#Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty">Performing multiple global continuations to incorporate prescribed parameter changes and parameter uncertainty</a><a id="Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty-1"></a><a class="docs-heading-anchor-permalink" href="#Performing-multiple-global-continuations-to-incorporate-prescribed-parameter-changes-and-parameter-uncertainty" title="Permalink"></a></h2><p>In this example we continue with the same model used in the previous example, the cloud model of (<a href="../references/#Datseris2026Clouds">Datseris, 2026</a>). In that model there are some key parameters that must be studied, all of which affect transitions between different cloud states. They are named as <code>D, U, δ_Δ₊T, RH₊, δ_FTR</code>. Crucially, each of these parameters have some uncertainty. In the context of the model this uncertainty reflects environmental variability. In addition, some of these parameters change with a prescribed trend in time, reflecting climate change.</p><p>We want to perform global continuation that incorporates both the prescribed trends, and uncertainty. We will do this by performing multiple continuations that start with randomly sampled parameters, and then continue along a curve in parameter space reflecting the chosen trends. We first make the following helper function that will be generating parameter curves (and remember, all parameters are named due to using ModelingToolkit.jl):</p><pre><code class="language-julia hljs">using Distributions: Uniform, Normal
 
 function sample_pcurve(time = 0:14)
     # inputs
@@ -806,6 +773,6 @@ function sample_pcurve(time = 0:14)
     end
     return pcurve
 end</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">sample_pcurve (generic function with 2 methods)</code></pre><p>let's see a curve that this function generates:</p><pre><code class="language-julia hljs">pcurve = sample_pcurve(0:2)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">3-element Vector{Dict{Symbol, Float64}}:
- Dict(:U =&gt; 8.56086938914412, :δ_Δ₊T =&gt; 2.941043785870791, :D =&gt; 3.4143457745788012e-6, :δ_FTR =&gt; 9.049190668270548, :CO2 =&gt; 400.0, :RH₊ =&gt; 0.19390466196260123)
- Dict(:U =&gt; 8.46086938914412, :δ_Δ₊T =&gt; 2.941043785870791, :D =&gt; 3.3643457745788013e-6, :δ_FTR =&gt; 9.049190668270548, :CO2 =&gt; 500.0, :RH₊ =&gt; 0.19390466196260123)
- Dict(:U =&gt; 8.36086938914412, :δ_Δ₊T =&gt; 2.941043785870791, :D =&gt; 3.3143457745788013e-6, :δ_FTR =&gt; 9.049190668270548, :CO2 =&gt; 600.0, :RH₊ =&gt; 0.19390466196260123)</code></pre><p>With global continuation you can run through all of these generated <code>pcurves</code> and analyze accordingly!</p><p>Each continuation result will be matched across the <code>time</code> axis. But the individual continuations may not be matched with each other! That means that for example a "high cloud fraction attractor" will have a consistent ID through one continuation, but between different continuations it may not have the same ID! The easiest way to resolve this is to transform each continuation to a series using <a href="../api/#Attractors.continuation_series"><code>continuation_series</code></a>. Then, use a dedicated classification function that analyses a particular series (i.e., a single and specific attractor continuation) and assigns to it a particular, context-related label, instead of the random integer it obtains by default.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../api/">« API</a><a class="docs-footer-nextpage" href="../bfkit_comparison/">Comparison with traditional local continuation and bifurcation analysis software »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label></p><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div><p></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Tuesday 23 June 2026 20:22">Tuesday 23 June 2026</span>. Using Julia version 1.11.9.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></HTML>
+ Dict(:U =&gt; 7.293406268008052, :δ_Δ₊T =&gt; 6.352736893661589, :D =&gt; 4.395926344760722e-6, :δ_FTR =&gt; 7.271243853683075, :CO2 =&gt; 400.0, :RH₊ =&gt; 0.39263900897841075)
+ Dict(:U =&gt; 7.193406268008053, :δ_Δ₊T =&gt; 6.352736893661589, :D =&gt; 4.345926344760722e-6, :δ_FTR =&gt; 7.271243853683075, :CO2 =&gt; 500.0, :RH₊ =&gt; 0.39263900897841075)
+ Dict(:U =&gt; 7.093406268008052, :δ_Δ₊T =&gt; 6.352736893661589, :D =&gt; 4.2959263447607225e-6, :δ_FTR =&gt; 7.271243853683075, :CO2 =&gt; 600.0, :RH₊ =&gt; 0.39263900897841075)</code></pre><p>With global continuation you can run through all of these generated <code>pcurves</code> and analyze accordingly!</p><p>Each continuation result will be matched across the <code>time</code> axis. But the individual continuations may not be matched with each other! That means that for example a "high cloud fraction attractor" will have a consistent ID through one continuation, but between different continuations it may not have the same ID! The easiest way to resolve this is to transform each continuation to a series using <a href="../api/#Attractors.continuation_series"><code>continuation_series</code></a>. Then, use a dedicated classification function that analyses a particular series (i.e., a single and specific attractor continuation) and assigns to it a particular, context-related label, instead of the random integer it obtains by default.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../api/">« API</a><a class="docs-footer-nextpage" href="../bfkit_comparison/">Comparison with traditional local continuation and bifurcation analysis software »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label></p><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div><p></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Friday 26 June 2026 10:33">Friday 26 June 2026</span>. Using Julia version 1.11.9.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></HTML>
