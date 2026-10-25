@@ -17,6 +17,7 @@ docsmodules = [
         ("ChaosTools", "various tools for analysing nonlinear and chaotic behaviour"),
         ("Attractors", "find attractors and basins; nonlocal stability; global continuation"),
         ("PeriodicOrbits", "stable and unstable periodic orbits for discrete and continuous time systems"),
+        ("CriticalTransitions", "formalizing and automating analyses nonautonomous dynamical systems and critical transitions"),
     ],
     "Nonlinear Timeseries Analysis" => [
         ("DelayEmbeddings", "optimal (unified/separated) delay coordinate embeddings"),
